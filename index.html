@@ -1,0 +1,2789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Brand Professor | Strategic Branding Workshops</title>
+  <link href="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67bc9f8c47a45059f85082d7_32.png" rel="shortcut icon" type="image/x-icon"/>
+
+  <!-- Webflow base CSS for fonts and core layout -->
+  <link href="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/css/b-professor.webflow.shared.589fcd1df.min.css" rel="stylesheet" type="text/css"/>
+
+  <!-- Lottie player for animated logo -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+
+  <!-- GSAP + ScrollTrigger + SplitType for text animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
+
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    a { color: inherit; text-decoration: none; user-select: none; }
+    button { background-color: unset; padding: unset; border: none; cursor: pointer; text-align: inherit; color: inherit; font-family: inherit; }
+
+    /* ── Fluid font size (matches Webflow calc) ── */
+    html { font-size: calc(0.21875rem + 0.9375vw); }
+    @media screen and (max-width:1920px) { html { font-size: calc(0.21875rem + 0.9375vw); } }
+    @media screen and (max-width:1440px) { html { font-size: calc(0.198rem + 0.891vw); } }
+    @media screen and (max-width:991px)  { html { font-size: calc(0.758rem + 0.391vw); } }
+    @media screen and (max-width:479px)  { html { font-size: calc(0.749rem + 0.837vw); } }
+
+    /* ── Swatch palette ── */
+    :root {
+      --swatch--professional-accent-orange: #ff8c1e;
+      --swatch--adventurous-light-red: #ff3429;
+      --swatch--creative-light-blue: #6584f8;
+      --swatch--friendly-light-green: #8cc740;
+      --swatch--efficient-white: #fff;
+      --swatch--efficient-black: #000;
+      --swatch--adventurous-dark-red: #4f0d12;
+      --swatch--creative-dark-blue: #010028;
+      --swatch--friendly-dark-green: #002e0d;
+      --swatch--shape-gray: #222;
+      --swatch--shape-red: #691315;
+      --swatch--shape-blue: #101447;
+      --swatch--shape-green: #0f3b30;
+    }
+
+    /* ── Color-mode CSS variables (base/orange default) ── */
+    :root {
+      --_color-mode---background: var(--swatch--efficient-black);
+      --_color-mode---text-main: var(--swatch--efficient-white);
+      --_color-mode---banner-bg: var(--swatch--professional-accent-orange);
+      --_color-mode---banner-text: var(--swatch--efficient-black);
+      --_color-mode---shape: var(--swatch--shape-gray);
+      --_color-mode---accent: var(--swatch--professional-accent-orange);
+      --_color-mode---icon: var(--swatch--efficient-white);
+      --_color-mode---banner-icon: var(--swatch--efficient-black);
+      --_color-mode---footer-text: var(--swatch--efficient-black);
+      --_color-mode---footer-border: var(--swatch--professional-accent-orange);
+      --_color-mode---footer-bg: var(--swatch--professional-accent-orange);
+    }
+
+    /* Red theme — Fearless Adventure */
+    .u-theme-red {
+      --_color-mode---background: var(--swatch--adventurous-dark-red);
+      --_color-mode---text-main: var(--swatch--adventurous-light-red);
+      --_color-mode---banner-bg: var(--swatch--adventurous-light-red);
+      --_color-mode---banner-text: var(--swatch--adventurous-dark-red);
+      --_color-mode---shape: var(--swatch--shape-red);
+      --_color-mode---accent: var(--swatch--adventurous-light-red);
+      --_color-mode---icon: var(--swatch--adventurous-light-red);
+      --_color-mode---banner-icon: var(--swatch--adventurous-dark-red);
+      --_color-mode---footer-text: var(--swatch--adventurous-dark-red);
+      --_color-mode---footer-border: var(--swatch--adventurous-light-red);
+      --_color-mode---footer-bg: var(--swatch--adventurous-light-red);
+    }
+    /* Blue theme — Boundless Creativity */
+    .u-theme-blue {
+      --_color-mode---background: var(--swatch--creative-dark-blue);
+      --_color-mode---text-main: var(--swatch--creative-light-blue);
+      --_color-mode---banner-bg: var(--swatch--creative-light-blue);
+      --_color-mode---banner-text: var(--swatch--creative-dark-blue);
+      --_color-mode---shape: var(--swatch--shape-blue);
+      --_color-mode---accent: var(--swatch--creative-light-blue);
+      --_color-mode---icon: var(--swatch--creative-light-blue);
+      --_color-mode---banner-icon: var(--swatch--creative-dark-blue);
+      --_color-mode---footer-text: var(--swatch--creative-dark-blue);
+      --_color-mode---footer-border: var(--swatch--creative-light-blue);
+      --_color-mode---footer-bg: var(--swatch--creative-light-blue);
+    }
+    /* Green theme — Friendly Horizon */
+    .u-theme-green {
+      --_color-mode---background: var(--swatch--friendly-dark-green);
+      --_color-mode---text-main: var(--swatch--friendly-light-green);
+      --_color-mode---banner-bg: var(--swatch--friendly-light-green);
+      --_color-mode---banner-text: var(--swatch--friendly-dark-green);
+      --_color-mode---shape: var(--swatch--shape-green);
+      --_color-mode---accent: var(--swatch--friendly-light-green);
+      --_color-mode---icon: var(--swatch--friendly-light-green);
+      --_color-mode---banner-icon: var(--swatch--friendly-dark-green);
+      --_color-mode---footer-text: var(--swatch--friendly-dark-green);
+      --_color-mode---footer-border: var(--swatch--friendly-light-green);
+      --_color-mode---footer-bg: var(--swatch--friendly-light-green);
+    }
+    /* White theme — Hyper Efficient */
+    .u-theme-white {
+      --_color-mode---background: var(--swatch--efficient-black);
+      --_color-mode---text-main: var(--swatch--efficient-white);
+      --_color-mode---banner-bg: var(--swatch--efficient-white);
+      --_color-mode---banner-text: var(--swatch--efficient-black);
+      --_color-mode---shape: var(--swatch--shape-gray);
+      --_color-mode---accent: var(--swatch--efficient-white);
+      --_color-mode---icon: var(--swatch--efficient-white);
+      --_color-mode---banner-icon: var(--swatch--efficient-black);
+      --_color-mode---footer-text: var(--swatch--efficient-white);
+      --_color-mode---footer-border: var(--swatch--efficient-white);
+      --_color-mode---footer-bg: var(--swatch--efficient-black);
+    }
+
+    /* ── Content visibility per theme ── */
+    .content-base { display: block; }
+    .content-red, .content-green, .content-blue, .content-white { display: none; }
+
+    body {
+      background-color: var(--_color-mode---background);
+      color: var(--_color-mode---text-main);
+      font-family: Borna, 'Trebuchet MS', sans-serif;
+      font-size: 1rem;
+      line-height: 150%;
+      overflow-x: hidden;
+      transition: background-color .4s ease, color .4s ease;
+    }
+
+    /* ── Text-split animation base ── */
+    [text-split] { word-break: break-word; }
+    [text-split] .line { display: inline-block; white-space: nowrap; overflow: hidden; }
+
+    /* ── Serif italic class ── */
+    .serif {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    /* ── Container ── */
+    .container {
+      width: 100%;
+      max-width: 85.75rem;
+      margin: 0 auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* ═══════════════════════════════════════
+       HEADER / NAVIGATION
+    ═══════════════════════════════════════ */
+    .header {
+      padding-top: 1.375rem;
+      padding-bottom: 1.375rem;
+    }
+    .header-content {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      position: relative;
+    }
+    .header_logo {
+      z-index: 5;
+      justify-content: flex-start;
+      align-items: center;
+      width: 7rem;
+      height: 3rem;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+    .lottie-header {
+      width: 6.375rem;
+      height: 6.375rem;
+    }
+    .lottie-header.content-red,
+    .lottie-header.content-green,
+    .lottie-header.content-blue,
+    .lottie-header.content-white { display: none; }
+    .menu-wrap {
+      z-index: 4;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      inset: 0%;
+    }
+    .menu-navigation {
+      z-index: 4;
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      inset: 0% 0% 0% -10%;
+    }
+    .navlink {
+      grid-column-gap: 1.1rem;
+      grid-row-gap: 1.1rem;
+      justify-content: center;
+      align-items: center;
+      padding: .5rem;
+      font-size: .933333rem;
+      font-weight: 500;
+      display: flex;
+      white-space: nowrap;
+    }
+    .navlink-shape {
+      color: var(--_color-mode---accent);
+      flex: none;
+      width: .34375rem;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+      display: flex;
+    }
+    .navlink:hover .navlink-shape {
+      transform: translateX(0.5rem);
+    }
+
+    /* ── Mood Selector ── */
+    .color-mode-selector {
+      z-index: 5;
+      grid-column-gap: 1.1875rem;
+      grid-row-gap: 1.1875rem;
+      justify-content: flex-end;
+      align-items: center;
+      min-width: 20rem;
+      margin-right: -.5rem;
+      padding: .5rem;
+      font-size: .875rem;
+      font-weight: 500;
+      display: flex;
+      position: absolute;
+      right: 0;
+    }
+    .mood-selector_text {
+      width: auto;
+      overflow: hidden;
+    }
+    .mood-selector_colors {
+      grid-column-gap: .25rem;
+      grid-row-gap: .25rem;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+    }
+    .mood-color-wrap {
+      grid-column-gap: .3125rem;
+      grid-row-gap: .3125rem;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+    }
+    .mood-color_circle {
+      background-color: #fff;
+      border-radius: 1000%;
+      flex: none;
+      width: 1rem;
+      height: 1rem;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+    }
+    .mood-color_circle.is-orange { background-color: var(--swatch--professional-accent-orange); }
+    .mood-color_circle.is-red { background-color: var(--swatch--adventurous-light-red); }
+    .mood-color_circle.is-blue { background-color: var(--swatch--creative-light-blue); }
+    .mood-color_circle.is-green { background-color: var(--swatch--friendly-light-green); }
+    .mood-color_circle.is-white {
+      background-color: transparent;
+      border: .0625rem solid var(--swatch--efficient-white);
+    }
+    .mood-color_text {
+      width: 0;
+      font-size: .5rem;
+      line-height: 120%;
+      overflow: hidden;
+      transition: width .35s cubic-bezier(.25,.46,.45,.94);
+    }
+    .mood-color_text.orange { color: var(--swatch--professional-accent-orange); }
+    .mood-color_text.red { color: var(--swatch--adventurous-light-red); }
+    .mood-color_text.blue { color: var(--swatch--creative-light-blue); }
+    .mood-color_text.green { color: var(--swatch--friendly-light-green); }
+    .mood-color_text.white { color: var(--swatch--efficient-white); }
+    .color-mode-selector:hover .mood-selector_text { display: none; }
+    .color-mode-selector:hover .mood-color_text { width: 3rem; }
+    .mood-color-wrap:hover .mood-color_circle { transform: scale(1.15); }
+
+    /* ═══════════════════════════════════════
+       ANNOUNCEMENT / MARQUEE BAR
+    ═══════════════════════════════════════ */
+    .hero_content-wrap {
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+      flex-flow: column;
+      padding-top: 0;
+      padding-bottom: 2.8125rem;
+      display: flex;
+    }
+    .hero_marquee-wrap {
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+      background-color: var(--_color-mode---banner-bg);
+      color: var(--_color-mode---banner-text);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      word-spacing: 1rem;
+      border-radius: .625rem;
+      padding-top: .6rem;
+      padding-bottom: .6rem;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 100%;
+      overflow: hidden;
+    }
+    .marquee_animation-line {
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+      flex-flow: row;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+      animation: marquee-scroll 20s linear infinite;
+    }
+    .marquee-text {
+      flex: none;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-33.333%); }
+    }
+
+    /* ═══════════════════════════════════════
+       HERO CONTENT AREA
+    ═══════════════════════════════════════ */
+    .hero_content {
+      height: 39.375rem;
+      padding-top: 4.1875rem;
+      padding-left: 7.3125rem;
+      padding-right: 3rem;
+      position: relative;
+    }
+    .hero_pattern {
+      z-index: 1;
+      color: var(--_color-mode---shape);
+      position: absolute;
+      inset: 0%;
+    }
+    .shape-accent {
+      color: var(--_color-mode---accent);
+    }
+
+    /* ── Logos overlay ── */
+    .hero_logos-wrap {
+      z-index: 2;
+      position: absolute;
+      inset: 0%;
+    }
+    .hero_logo-wrap {
+      aspect-ratio: 1;
+      width: 1.5rem;
+      position: absolute;
+    }
+    .hero_logo-wrap.is-1    { top: -.4rem;  left: -.5rem; }
+    .hero_logo-wrap.is-2    { top: -.4rem;  right: 6rem; }
+    .hero_logo-wrap.is-3    { top: -.4rem;  right: 1.7rem; }
+    .hero_logo-wrap.is-2-1  { top: 1.2rem;  left: 14.5rem; }
+    .hero_logo-wrap.is-2-2  { top: 1.2rem;  right: 23rem; }
+    .hero_logo-wrap.is-2-3  { top: 1.2rem;  right: 3.8rem; }
+    .hero_logo-wrap.is-3-1  { top: 2.7rem;  right: 35.7rem; }
+    .hero_logo-wrap.is-3-2  { top: 2.7rem;  right: -.5rem; }
+    .hero_logo-wrap.is-7-1  { top: 9.2rem;  left: -.4rem; }
+    .hero_logo-wrap.is-7-2  { top: 9.2rem;  right: 8rem; }
+    .hero_logo-wrap.is-9-1  { top: 12.3rem; right: 25.2rem; }
+    .hero_logo-wrap.is-11-1 { top: 15.5rem; left: 10.2rem; }
+    .hero_logo-wrap.is-13-1 { top: 17.1rem; left: 1.7rem; }
+    .hero_logo-wrap.is-13-2 { top: 17.1rem; right: 35.8rem; }
+    .hero_logo-wrap.is-13-3 { top: 17.1rem; right: 14.5rem; }
+    .hero_logo-wrap.is-16   { top: 18.6rem; right: 5.9rem; }
+    .hero_logo-wrap.is-20   { top: 30.2rem; left: 37.9rem; }
+    .hero_logo-wrap.is-25   { top: 38.3rem; left: 20.9rem; }
+
+    .hero_logo-image {
+      opacity: 0;
+      pointer-events: none;
+      width: 3rem;
+      transition: opacity .35s cubic-bezier(.25,.46,.45,.94);
+      position: absolute;
+      top: 1.4rem;
+      left: -.7rem;
+    }
+    .hero_logo-wrap:hover .hero_logo-image { opacity: 1; }
+
+    .hero_logo-image.is-gunpowder { width: 12rem; top: 1.2rem; left: -5.1rem; }
+    .hero_logo-image.is-experience { width: 4.5rem; left: -1.5rem; }
+    .hero_logo-image.is-deeps { width: 4rem; left: -1.2rem; }
+    .hero_logo-image.is-born { width: 3.5rem; left: -.9rem; }
+    .hero_logo-image.is-empire { width: 7rem; top: 1.2rem; left: -2.7rem; }
+    .hero_logo-image.is-ferucci { width: 6rem; top: 1.1rem; left: -2.7rem; }
+    .hero_logo-image.is-meraki { width: 6rem; left: -2.3rem; }
+    .hero_logo-image.is-naariy { width: 6.5rem; left: -2.9rem; }
+    .hero_logo-image.is-presiaa { width: 7.5rem; left: -3.4rem; }
+    .hero_logo-image.is-timeless { width: 6rem; top: .6rem; left: -1.6rem; }
+    .hero_logo-image.is-sos { width: 4.5rem; left: -1.4rem; }
+    .hero_logo-image.is-sat { width: 5rem; left: -2.1rem; }
+    .hero_logo-image.is-urban { width: 7rem; top: 1rem; left: -2.6rem; }
+    .hero_logo-image.is-wovoyage { width: 5rem; left: -1.4rem; }
+    .hero_logo-image.is-saba { width: 6rem; left: -2.3rem; }
+    .hero_logo-image.is-ahi { width: 5rem; }
+
+    /* ── Hero text ── */
+    .hero_texts-wrap {
+      grid-column-gap: 8.625rem;
+      grid-row-gap: 8.625rem;
+      flex-flow: column;
+      display: flex;
+      position: relative;
+    }
+    .home-h1 {
+      z-index: 5;
+      max-width: 32rem;
+      position: relative;
+    }
+    h1 {
+      letter-spacing: -.015em;
+      margin: 0;
+      font-size: 4.375rem;
+      font-weight: 400;
+      line-height: 110%;
+    }
+    .hero_down-texts {
+      z-index: 6;
+      pointer-events: none;
+      letter-spacing: -.015em;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 2.25rem;
+      display: flex;
+      position: relative;
+    }
+    .hero-text {
+      z-index: 5;
+      max-width: 27.5rem;
+      position: relative;
+    }
+    .hero_fake-h1 {
+      z-index: 5;
+      max-width: 23rem;
+      font-size: 4.375rem;
+      line-height: 110%;
+      position: relative;
+    }
+
+    /* ── Responsive ── */
+    @media screen and (max-width: 991px) {
+      .menu-navigation { display: none; }
+      .color-mode-selector { display: none; }
+      .hero_content {
+        padding-left: 2rem;
+        padding-right: 1rem;
+        height: auto;
+        min-height: 30rem;
+      }
+      .hero_down-texts {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+      h1 { font-size: 3rem; }
+      .hero_fake-h1 { font-size: 3rem; }
+      .hero_logos-wrap { display: none; }
+    }
+
+    @media screen and (max-width: 479px) {
+      h1 { font-size: 2.25rem; }
+      .hero_fake-h1 { font-size: 2.25rem; }
+      .hero_content { padding-left: 1rem; }
+    }
+
+    /* ── Logo cycling animation ── */
+    .hero_logo-wrap {
+      animation: logo-cycle 12s ease-in-out infinite;
+    }
+    .hero_logo-wrap .hero_logo-image {
+      animation: logo-fade 12s ease-in-out infinite;
+    }
+    /* Stagger each logo */
+    .hero_logo-wrap.is-1    { animation-delay: 0s; }
+    .hero_logo-wrap.is-1    .hero_logo-image { animation-delay: 0s; }
+    .hero_logo-wrap.is-2    { animation-delay: 0.6s; }
+    .hero_logo-wrap.is-2    .hero_logo-image { animation-delay: 0.6s; }
+    .hero_logo-wrap.is-3    { animation-delay: 1.2s; }
+    .hero_logo-wrap.is-3    .hero_logo-image { animation-delay: 1.2s; }
+    .hero_logo-wrap.is-2-1  { animation-delay: 1.8s; }
+    .hero_logo-wrap.is-2-1  .hero_logo-image { animation-delay: 1.8s; }
+    .hero_logo-wrap.is-2-2  { animation-delay: 2.4s; }
+    .hero_logo-wrap.is-2-2  .hero_logo-image { animation-delay: 2.4s; }
+    .hero_logo-wrap.is-2-3  { animation-delay: 3.0s; }
+    .hero_logo-wrap.is-2-3  .hero_logo-image { animation-delay: 3.0s; }
+    .hero_logo-wrap.is-3-1  { animation-delay: 3.6s; }
+    .hero_logo-wrap.is-3-1  .hero_logo-image { animation-delay: 3.6s; }
+    .hero_logo-wrap.is-3-2  { animation-delay: 4.2s; }
+    .hero_logo-wrap.is-3-2  .hero_logo-image { animation-delay: 4.2s; }
+    .hero_logo-wrap.is-7-1  { animation-delay: 4.8s; }
+    .hero_logo-wrap.is-7-1  .hero_logo-image { animation-delay: 4.8s; }
+    .hero_logo-wrap.is-7-2  { animation-delay: 5.4s; }
+    .hero_logo-wrap.is-7-2  .hero_logo-image { animation-delay: 5.4s; }
+    .hero_logo-wrap.is-9-1  { animation-delay: 6.0s; }
+    .hero_logo-wrap.is-9-1  .hero_logo-image { animation-delay: 6.0s; }
+    .hero_logo-wrap.is-11-1 { animation-delay: 6.6s; }
+    .hero_logo-wrap.is-11-1 .hero_logo-image { animation-delay: 6.6s; }
+    .hero_logo-wrap.is-13-1 { animation-delay: 7.2s; }
+    .hero_logo-wrap.is-13-1 .hero_logo-image { animation-delay: 7.2s; }
+    .hero_logo-wrap.is-13-2 { animation-delay: 7.8s; }
+    .hero_logo-wrap.is-13-2 .hero_logo-image { animation-delay: 7.8s; }
+    .hero_logo-wrap.is-13-3 { animation-delay: 8.4s; }
+    .hero_logo-wrap.is-13-3 .hero_logo-image { animation-delay: 8.4s; }
+    .hero_logo-wrap.is-16   { animation-delay: 9.0s; }
+    .hero_logo-wrap.is-16   .hero_logo-image { animation-delay: 9.0s; }
+    .hero_logo-wrap.is-20   { animation-delay: 9.6s; }
+    .hero_logo-wrap.is-20   .hero_logo-image { animation-delay: 9.6s; }
+    .hero_logo-wrap.is-25   { animation-delay: 10.2s; }
+    .hero_logo-wrap.is-25   .hero_logo-image { animation-delay: 10.2s; }
+
+    @keyframes logo-fade {
+      0%, 100% { opacity: 0; }
+      8%, 16%  { opacity: 1; }
+      24%      { opacity: 0; }
+    }
+
+    /* Menu button (mobile) */
+    .menu-button {
+      display: none;
+      z-index: 5;
+      font-weight: 500;
+      font-size: .933333rem;
+    }
+    @media screen and (max-width: 991px) {
+      .menu-button { display: block; position: absolute; right: 0; }
+    }
+
+    section {
+      position: relative;
+      max-width: 100vw;
+      overflow: clip;
+    }
+
+    /* ═══════════════════════════════════════
+       WHAT WE DO SECTION
+    ═══════════════════════════════════════ */
+    .what-we-do_wrap {
+      flex-flow: column;
+      padding: 5rem 1.6875rem 7.2rem 3.375rem;
+      display: flex;
+    }
+    .what-we-do_content {
+      grid-column-gap: 12rem;
+      grid-row-gap: 12rem;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+    }
+    .wwd_photos-wrap {
+      width: 20rem;
+      height: 27.3rem;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .wwd-photo {
+      border-radius: .9375rem;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+    .wwd-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .wwd_arrows {
+      pointer-events: none;
+      color: var(--_color-mode---accent);
+      display: flex;
+      position: absolute;
+      inset: -2rem;
+    }
+    .wwd_text-cols {
+      grid-column-gap: 2.5rem;
+      grid-row-gap: 2.5rem;
+      display: flex;
+    }
+    .wwd_text-col {
+      grid-column-gap: 2.5rem;
+      grid-row-gap: 2.5rem;
+      letter-spacing: -.015em;
+      flex-flow: column;
+      max-width: 20.1rem;
+      line-height: 160%;
+      display: flex;
+    }
+    .wwd_text-col.second {
+      max-width: 20.4rem;
+    }
+    .wwd_text-col.first {
+      max-width: 19.2rem;
+    }
+    .wwd_text-col_heading {
+      grid-column-gap: .5625rem;
+      grid-row-gap: .5625rem;
+      letter-spacing: -.015em;
+      flex-flow: column;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+      display: flex;
+    }
+    .t--col-heading {
+      letter-spacing: -.015em;
+      font-size: 1rem;
+      line-height: 160%;
+      margin: 0;
+    }
+    .col-heading_width {
+      max-width: 10rem;
+    }
+    .t-balance {
+      text-wrap: balance;
+      margin: 0;
+    }
+
+    /* ── CTA Button (From Vision to Brand Mastery) ── */
+    .wwd_button {
+      grid-column-gap: 7.1875rem;
+      grid-row-gap: 7.1875rem;
+      letter-spacing: -.015em;
+      justify-content: flex-start;
+      align-self: flex-end;
+      align-items: center;
+      font-size: 2rem;
+      line-height: 110%;
+      display: flex;
+      margin-top: 2rem;
+      transition: font-family .35s ease;
+    }
+    .wwd_button:hover {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+    }
+    .wwd_button:hover .icon-arrow {
+      transform: rotate(45deg);
+    }
+    .button-text {
+      position: relative;
+    }
+    .button-text_line {
+      background-color: var(--_color-mode---text-main);
+      height: .0625rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      width: 0;
+      transition: width .35s ease;
+    }
+    .wwd_button:hover .button-text_line {
+      width: 100% !important;
+    }
+    .button-icon {
+      aspect-ratio: 1;
+      border: .0625rem solid var(--_color-mode---icon);
+      color: var(--_color-mode---icon);
+      border-radius: 100rem;
+      flex: none;
+      justify-content: center;
+      align-items: center;
+      width: 3.875rem;
+      display: flex;
+    }
+    .icon-arrow {
+      width: 1.25rem;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+      display: flex;
+    }
+
+    /* ── What We Do responsive ── */
+    @media screen and (max-width: 991px) {
+      .what-we-do_wrap {
+        padding: 3rem 1rem;
+        grid-column-gap: 3rem;
+        grid-row-gap: 3rem;
+      }
+      .what-we-do_content {
+        grid-column-gap: 6rem;
+        grid-row-gap: 6rem;
+        flex-flow: column;
+      }
+      .wwd_text-cols {
+        flex-direction: column;
+      }
+      .wwd_button {
+        align-self: center;
+      }
+      .wwd_arrows {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .wwd_photos-wrap {
+        width: 100%;
+        height: auto;
+      }
+      .wwd_button {
+        font-size: 1.5rem;
+        grid-column-gap: 3rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       WORKSHOPS SECTION
+    ═══════════════════════════════════════ */
+    .workshops_block {
+      padding-top: 6.25rem;
+      padding-bottom: 6.25rem;
+      position: relative;
+    }
+    .block-line {
+      background-color: var(--_color-mode---text-main);
+      width: 0%;
+      height: .0625rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .content-wrap {
+      grid-column-gap: 5rem;
+      grid-row-gap: 5rem;
+      flex-flow: column;
+      display: flex;
+    }
+    .h2_text-wrap {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+    }
+    h2 {
+      letter-spacing: -.015em;
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 110%;
+    }
+    h3 {
+      letter-spacing: -.015em;
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 110%;
+    }
+    .h2_text {
+      letter-spacing: -.015em;
+      width: 27.125rem;
+      font-size: 2rem;
+      line-height: 110%;
+    }
+    .h2_text.is-workshop {
+      text-align: right;
+    }
+
+    /* ── Workshop Cards Grid ── */
+    .workshop_cards-text {
+      grid-column-gap: 5rem;
+      grid-row-gap: 5rem;
+      flex-flow: column;
+      display: flex;
+    }
+    .workshop-cards {
+      grid-column-gap: 1.25rem;
+      grid-row-gap: 1.25rem;
+      grid-template-rows: auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-columns: 1fr;
+      display: grid;
+    }
+    .workshop-card {
+      grid-column-gap: 4.9375rem;
+      grid-row-gap: 4.9375rem;
+      aspect-ratio: 1;
+      border: .0625rem solid var(--_color-mode---text-main);
+      border-radius: 1.25rem;
+      flex-flow: column;
+      padding-top: 1.5rem;
+      padding-left: 1.75rem;
+      padding-right: 1.5rem;
+      display: flex;
+      position: relative;
+      overflow: visible;
+    }
+    .wshop-card_title-arrow {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+    }
+    .wshop-card_title-arrow:hover {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+    }
+    .wshop-card_title-arrow:hover .icon-arrow {
+      transform: rotate(45deg);
+    }
+    .wshop-card_title {
+      max-width: 12rem;
+    }
+    .wshop-card_illustration {
+      color: var(--_color-mode---accent);
+      align-self: center;
+      width: 12.125rem;
+      display: flex;
+    }
+
+    /* ── Card Border Draw Animation ── */
+    .draw-animation-lines {
+      z-index: 5;
+      pointer-events: none;
+      position: absolute;
+      inset: -1%;
+    }
+    .draw-animation-line {
+      z-index: 4;
+      background-color: var(--_color-mode---background);
+      position: absolute;
+    }
+    .draw-animation-line.is-second {
+      width: 1.5rem;
+      height: 100%;
+      bottom: 0;
+      right: 0;
+    }
+    .draw-animation-line.is-fourth {
+      width: 1.5rem;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+    }
+    .draw-animation_top-lines {
+      height: .6rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .animation-line_first-left {
+      background-color: var(--_color-mode---background);
+      width: 50%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .animation-line_first-right {
+      background-color: var(--_color-mode---background);
+      width: 50%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+    .draw-animation_bottom-lines {
+      height: .6rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .animation-line_bottom-left {
+      z-index: 1;
+      background-color: var(--_color-mode---background);
+      width: 50%;
+      height: .5rem;
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+    }
+    .animation-line_bottom-right {
+      z-index: 2;
+      background-color: var(--_color-mode---background);
+      width: 50%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+    }
+
+    /* ── Workshop text area below cards ── */
+    .workshop_texts {
+      grid-column-gap: 4.125rem;
+      grid-row-gap: 4.125rem;
+      display: flex;
+    }
+    .workshop_main-text {
+      letter-spacing: -.015em;
+      max-width: 24.1875rem;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+    .workshop_ol {
+      grid-column-gap: 1.875rem;
+      grid-row-gap: 1.875rem;
+      flex-flow: column;
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style-type: none;
+      display: flex;
+    }
+    .workshop_li {
+      grid-column-gap: 2rem;
+      grid-row-gap: 2rem;
+      flex: none;
+      display: flex;
+    }
+    .workshop_li::before {
+      display: none;
+    }
+    .workshop-li_number {
+      letter-spacing: -.015em;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+    .workshop-li_text-wrap {
+      letter-spacing: -.015em;
+      line-height: 160%;
+    }
+    .t--wshop-li-title {
+      letter-spacing: -.015em;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+      margin: 0;
+    }
+    .workshop-li_desc {
+      margin: 0;
+    }
+
+    /* ── Workshops responsive ── */
+    @media screen and (max-width: 991px) {
+      .h2_text-wrap {
+        grid-column-gap: 2rem;
+        grid-row-gap: 2rem;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .workshop-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+      .workshop-card {
+        grid-column-gap: 3rem;
+        grid-row-gap: 3rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      .workshop_texts {
+        flex-direction: column;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .workshop-cards {
+        grid-template-columns: 1fr;
+      }
+      .wshop-card_title h3 {
+        font-size: 1.5rem;
+      }
+      .wshop-card_illustration {
+        width: 10rem;
+      }
+      .workshops_block {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       ORANGE BANNER SECTION
+    ═══════════════════════════════════════ */
+    .banner {
+      background-color: var(--_color-mode---banner-bg);
+      color: var(--_color-mode---banner-text);
+      border-radius: 1.25rem;
+      justify-content: center;
+      align-items: center;
+      padding-top: 4.25rem;
+      padding-bottom: 4.25rem;
+      display: flex;
+    }
+    .banner_content-wrap {
+      grid-column-gap: 1.75rem;
+      grid-row-gap: 1.75rem;
+      flex-flow: column;
+      width: 100%;
+      max-width: 69.5625rem;
+      display: flex;
+    }
+    .banner_title {
+      max-width: 37.5rem;
+    }
+    .banner_title h2 {
+      color: var(--_color-mode---banner-text);
+    }
+    .banner_button {
+      grid-column-gap: 3.5rem;
+      grid-row-gap: 3.5rem;
+      letter-spacing: -.015em;
+      justify-content: flex-start;
+      align-self: flex-end;
+      align-items: center;
+      font-size: 2rem;
+      line-height: 110%;
+      display: flex;
+      height: 5rem;
+    }
+    .banner_button:hover {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+    }
+    .banner_button:hover .icon-arrow {
+      transform: rotate(45deg);
+    }
+    .banner_button .button-icon {
+      border-color: var(--_color-mode---banner-text);
+      color: var(--_color-mode---banner-text);
+    }
+    .banner_button .button-text {
+      max-width: 20.5rem;
+    }
+    .banner-button_line {
+      background-color: var(--_color-mode---banner-text);
+      height: .0625rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+    .banner-button_line.is-1 {
+      width: 100%;
+      max-width: 16rem;
+      top: 2.2rem;
+    }
+    .banner_button:hover .banner-button_line {
+      width: 100% !important;
+      transition: width .35s ease;
+    }
+    .black-underline {
+      text-decoration: none;
+    }
+
+    /* ── Banner responsive ── */
+    @media screen and (max-width: 991px) {
+      .banner {
+        padding: 3rem;
+      }
+      .banner_button {
+        font-size: 1.5rem;
+        grid-column-gap: 2rem;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .banner_button {
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: flex-start;
+        height: auto;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       ABOUT / BORN FROM ENTREPRENEURIAL SPIRIT
+    ═══════════════════════════════════════ */
+    .about-block {
+      padding-top: 5rem;
+      padding-bottom: 11.25rem;
+    }
+    .content-wrap.wide {
+      grid-column-gap: 5rem;
+      grid-row-gap: 5rem;
+      flex-flow: column;
+      display: flex;
+    }
+    .about-h2 {
+      max-width: 31rem;
+    }
+    ._5-col-w {
+      width: 100%;
+      max-width: 34.1875rem;
+    }
+
+    /* ── Video / Photo area ── */
+    .about_photo-wrap {
+      width: 100%;
+      max-width: 77.625rem;
+      height: 38.8125rem;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .about-photo {
+      border-radius: .9375rem;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .about-photo video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    ._1-1_hero-arrows {
+      pointer-events: none;
+      color: var(--_color-mode---accent);
+      display: flex;
+      position: absolute;
+      inset: 0%;
+    }
+    ._11-hero-arrow {
+      width: .9375rem;
+      display: flex;
+      position: absolute;
+    }
+    ._11-hero-arrow.is-left {
+      top: 50%;
+      left: -2rem;
+      transform: translateY(-50%);
+    }
+    ._11-hero-arrow.is-top {
+      width: 1.1875rem;
+      top: -2rem;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    ._11-hero-arrow.is-right {
+      top: 50%;
+      right: -2rem;
+      transform: translateY(-50%);
+    }
+    ._11-hero-arrow.bottom {
+      width: 1.1875rem;
+      bottom: -2rem;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    /* ── About text content below video ── */
+    .about_texts-content {
+      grid-column-gap: 1.75rem;
+      grid-row-gap: 1.75rem;
+      flex-flow: column;
+      display: flex;
+    }
+    .about_main-text {
+      letter-spacing: -.015em;
+      max-width: 22.4rem;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+    .about_text-button {
+      grid-column-gap: 1.1875rem;
+      grid-row-gap: 1.1875rem;
+      flex-flow: column;
+      align-self: flex-end;
+      width: 100%;
+      max-width: 41.375rem;
+      display: flex;
+    }
+    .about-text {
+      letter-spacing: -.015em;
+      max-width: 25rem;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+    .about-button {
+      grid-column-gap: 7.0625rem;
+      grid-row-gap: 7.0625rem;
+      letter-spacing: -.015em;
+      justify-content: flex-start;
+      align-self: flex-end;
+      align-items: center;
+      font-size: 2rem;
+      line-height: 110%;
+      display: flex;
+    }
+    .about-button:hover {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+    }
+    .about-button:hover .icon-arrow {
+      transform: rotate(45deg);
+    }
+    .about-button-line {
+      background-color: var(--_color-mode---text-main);
+      height: .0625rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+    .about-button-line.is-1 {
+      width: 100%;
+      max-width: 20rem;
+      top: 2.1rem;
+    }
+    .about-button:hover .about-button-line {
+      width: 100% !important;
+      transition: width .35s ease;
+    }
+
+    /* ── About responsive ── */
+    @media screen and (max-width: 991px) {
+      .about-block {
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+      }
+      .about_photo-wrap {
+        height: 25rem;
+      }
+      .about_text-button {
+        align-self: flex-start;
+        max-width: 100%;
+      }
+      .about-button {
+        grid-column-gap: 3rem;
+      }
+      ._1-1_hero-arrows {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .about_photo-wrap {
+        height: 18rem;
+      }
+      .about-button {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════════════ */
+    .cta-block {
+      justify-content: center;
+      align-items: center;
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+      display: flex;
+      position: relative;
+    }
+    .cta-content {
+      gap: 3.1875rem;
+      flex-flow: column;
+      width: 100%;
+      max-width: 41.125rem;
+      display: flex;
+      position: relative;
+    }
+    .cta-text {
+      text-align: center;
+      letter-spacing: -.015em;
+      text-wrap: balance;
+      font-size: 2rem;
+      line-height: 110%;
+    }
+    .cta-slogan {
+      text-align: center;
+      letter-spacing: -.015em;
+      font-size: 4.375rem;
+      line-height: 110%;
+    }
+    .cta-arrows {
+      color: var(--_color-mode---accent);
+      position: absolute;
+      top: 2.8rem;
+      left: -4rem;
+      right: -4rem;
+    }
+    @media screen and (max-width: 991px) {
+      .cta-block {
+        padding-top: 4.375rem;
+      }
+      .cta-text {
+        font-size: 1.5rem;
+      }
+      .cta-slogan {
+        font-size: 2.625rem;
+      }
+      .cta-arrows {
+        left: -2.2rem;
+        right: -2.2rem;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      .cta-text {
+        font-size: 1.4375rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      color: var(--_color-mode---footer-text);
+      padding-bottom: 3.125rem;
+    }
+    .footer-wrap {
+      gap: 10.8125rem;
+      border: .0625rem solid var(--_color-mode---footer-border);
+      background-color: var(--_color-mode---footer-bg);
+      border-radius: 1.25rem;
+      padding: 5rem 7.125rem;
+      display: flex;
+      position: relative;
+    }
+    .footer-logo {
+      flex: none;
+      justify-content: center;
+      align-items: center;
+      width: 10.375rem;
+      height: 4.125rem;
+      display: flex;
+      overflow: hidden;
+    }
+    .footer-logo .lottie-logo {
+      width: 13.75rem;
+      height: 13.75rem;
+    }
+    .lottie-logo.content-red,
+    .lottie-logo.content-green,
+    .lottie-logo.content-blue,
+    .lottie-logo.content-white { display: none; }
+    .footer_info-wrap {
+      gap: 1.25rem;
+      width: 100%;
+      display: flex;
+    }
+    .footer_address {
+      gap: 3.5rem;
+      letter-spacing: -.015em;
+      flex-flow: column;
+      width: 20rem;
+      font-size: 1.1875rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.5625rem;
+      display: flex;
+    }
+    .address-wrap {
+      flex-flow: column;
+      display: flex;
+    }
+    .footer .textlink {
+      color: var(--_color-mode---footer-text);
+      text-decoration: none;
+      transition: font-family .15s;
+    }
+    .footer .textlink:hover {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+    }
+    .footer-form-content {
+      gap: 2.375rem;
+      flex-flow: column;
+      width: 100%;
+      max-width: 27.3rem;
+      display: flex;
+    }
+    .footer_navigation-links {
+      gap: 2rem;
+      justify-content: flex-start;
+      align-items: center;
+      padding-bottom: 2rem;
+      display: flex;
+      position: relative;
+    }
+    .footer_line {
+      background-color: var(--_color-mode---footer-text);
+      height: .0625rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    .footer-btn {
+      gap: 1.125rem;
+      letter-spacing: -.015em;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+      display: flex;
+      cursor: pointer;
+    }
+    .footer-btn_icon {
+      aspect-ratio: 1;
+      border: .0625rem solid var(--_color-mode---footer-text);
+      border-radius: 100rem;
+      flex: none;
+      justify-content: center;
+      align-items: center;
+      width: 3.875rem;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+    .footer_arrow {
+      width: 1.875rem;
+      display: flex;
+    }
+    .footer_arrow.arrow-hor {
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+    }
+    .footer-icon-top {
+      width: 1.5625rem;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+      display: flex;
+    }
+    .footer-arrow-hover-hor {
+      width: 2.75rem;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+      display: flex;
+      position: absolute;
+      transform: translate(-4rem);
+    }
+    .footer-arrow-hover-vert {
+      width: 1.5625rem;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+      display: flex;
+      position: absolute;
+      transform: translateY(4rem);
+    }
+    /* Footer button hover: horizontal "Next page" */
+    .footer-btn.foot-btn-hor:hover .footer_arrow.arrow-hor {
+      transform: translateX(4rem);
+    }
+    .footer-btn.foot-btn-hor:hover .footer-arrow-hover-hor {
+      transform: translate(0);
+    }
+    /* Footer button hover: vertical "Back to top" */
+    .footer-btn.foot-btn-vert:hover .footer-icon-top {
+      transform: translateY(-4rem);
+    }
+    .footer-btn.foot-btn-vert:hover .footer-arrow-hover-vert {
+      transform: translateY(0);
+    }
+
+    .footer_title-form {
+      gap: 1.375rem;
+      letter-spacing: -.015em;
+      flex-flow: column;
+      font-size: 2.125rem;
+      line-height: 110%;
+      display: flex;
+    }
+    .footer-form {
+      gap: 3.25rem;
+      justify-content: flex-start;
+      align-items: center;
+      display: flex;
+    }
+    .footer-input {
+      border: .0625rem solid var(--_color-mode---footer-text);
+      color: var(--_color-mode---footer-text);
+      letter-spacing: -.015em;
+      background-color: transparent;
+      border-radius: 1.25rem;
+      height: 2.875rem;
+      margin-bottom: 0;
+      padding: .625rem 1.125rem;
+      line-height: 160%;
+      font-family: inherit;
+      font-size: inherit;
+      outline: none;
+    }
+    .footer-input:focus {
+      border-style: solid;
+      border-color: var(--_color-mode---footer-text);
+    }
+    .footer-input::placeholder {
+      color: var(--_color-mode---footer-text);
+    }
+    .success-footer {
+      border: .0625rem solid var(--_color-mode---footer-text);
+      background-color: transparent;
+      border-radius: 1.25rem;
+      padding: .625rem 1.125rem;
+      display: none;
+    }
+    .footer-error {
+      background-color: transparent;
+      margin-top: 0;
+      font-size: .75rem;
+      display: none;
+    }
+
+    /* Footer "Book a call" button */
+    .banner_button {
+      gap: 3.5rem;
+      letter-spacing: -.015em;
+      justify-content: flex-start;
+      align-self: flex-start;
+      align-items: center;
+      font-size: 2rem;
+      line-height: 110%;
+      display: flex;
+      height: 5rem;
+      cursor: pointer;
+    }
+    .banner_button:hover {
+      font-family: 'Bw Beto Grande', Georgia, sans-serif;
+    }
+    .button-text.is-banner {
+      position: relative;
+    }
+    .banner-button_line {
+      background-color: var(--_color-mode---footer-text);
+      height: .0625rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+    .banner-button_line.is-1 {
+      width: 100%;
+      max-width: 16rem;
+      top: 2.2rem;
+    }
+    .banner-button_line.is-2 {
+      width: 100%;
+      max-width: 14rem;
+      bottom: -2px;
+    }
+    .button-icon.is-banner {
+      border-color: var(--_color-mode---footer-text);
+      color: var(--_color-mode---footer-text);
+    }
+    .button-icon.is-footer {
+      border-color: var(--_color-mode---footer-text);
+      color: var(--_color-mode---footer-text);
+    }
+
+    .t--footer-copyright {
+      letter-spacing: -.015em;
+      font-size: .9375rem;
+      line-height: 1.5rem;
+      position: absolute;
+      bottom: 6.2rem;
+      left: 7.125rem;
+    }
+
+    /* Footer responsive: 991px */
+    @media screen and (max-width: 991px) {
+      .footer-wrap {
+        gap: 5rem;
+        flex-flow: row;
+        justify-content: space-between;
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+      .footer_info-wrap {
+        gap: 2rem;
+        flex-flow: column;
+        width: auto;
+      }
+      .footer_address {
+        gap: 2rem;
+      }
+      .t--footer-copyright {
+        bottom: 6.7rem;
+        left: 3rem;
+      }
+    }
+    /* Footer responsive: 767px */
+    @media screen and (max-width: 767px) {
+      .footer-wrap {
+        gap: 2rem;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-left: 3.875rem;
+        padding-right: 3.875rem;
+      }
+      .footer-logo {
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        left: -1rem;
+      }
+      .footer_navigation-links {
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .footer_title-form {
+        font-size: 1.4375rem;
+      }
+      .footer-input {
+        font-size: 14px;
+      }
+      .t--footer-copyright {
+        position: relative;
+        bottom: 0;
+        left: 0;
+      }
+    }
+    /* Footer responsive: 479px */
+    @media screen and (max-width: 479px) {
+      .footer {
+        max-width: 100vw;
+        overflow: clip;
+      }
+      .footer-wrap {
+        padding: 3rem;
+      }
+      .footer_address {
+        width: auto;
+      }
+      .footer_navigation-links {
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+      .footer-btn {
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer-form {
+        gap: 1rem;
+      }
+      .footer-input {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       HEADER / NAVIGATION
+  ═══════════════════════════════════ -->
+  <header id="header" class="header">
+    <div class="container">
+      <div class="header-content">
+
+        <!-- Animated Lottie Logo (one per theme) -->
+        <a href="/" class="header_logo">
+          <lottie-player class="lottie-header content-base"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-header content-red"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a09347a1d25ee7b33f5cf6_BP_LOGO_ANIMATED_Adventurous%20Light%20Red.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-header content-blue"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a09350ca51cabc4ec04019_BP_LOGO_ANIMATED_Creative%20Light%20Blue.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-header content-green"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a0936d6bd476e8023219de_BP_LOGO_ANIMATED_Friendly%20Light%20Green.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-header content-white"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+        </a>
+
+        <!-- Nav + Mood Selector -->
+        <div class="menu-wrap">
+          <nav class="menu-navigation">
+            <a href="/workshops" class="navlink">
+              <div class="navlink-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 9" fill="none">
+                  <path d="M5.41865 3.49143C3.14576 3.15439 1.49507 1.71979 1.00247 0H0V8.11499H1.00247C1.50371 6.3952 3.14576 4.9606 5.41865 4.62356V3.49143Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>Workshops</div>
+            </a>
+            <a href="/one-on-one" class="navlink">
+              <div class="navlink-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 9" fill="none">
+                  <path d="M5.41865 3.49143C3.14576 3.15439 1.49507 1.71979 1.00247 0H0V8.11499H1.00247C1.50371 6.3952 3.14576 4.9606 5.41865 4.62356V3.49143Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>One-on-one</div>
+            </a>
+            <a href="/ebook" class="navlink">
+              <div class="navlink-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 9" fill="none">
+                  <path d="M5.41865 3.49143C3.14576 3.15439 1.49507 1.71979 1.00247 0H0V8.11499H1.00247C1.50371 6.3952 3.14576 4.9606 5.41865 4.62356V3.49143Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>Ebook</div>
+            </a>
+            <a href="/about" class="navlink">
+              <div class="navlink-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 9" fill="none">
+                  <path d="M5.41865 3.49143C3.14576 3.15439 1.49507 1.71979 1.00247 0H0V8.11499H1.00247C1.50371 6.3952 3.14576 4.9606 5.41865 4.62356V3.49143Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>About</div>
+            </a>
+            <a href="/resources" class="navlink">
+              <div class="navlink-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 9" fill="none">
+                  <path d="M5.41865 3.49143C3.14576 3.15439 1.49507 1.71979 1.00247 0H0V8.11499H1.00247C1.50371 6.3952 3.14576 4.9606 5.41865 4.62356V3.49143Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>Resources</div>
+            </a>
+            <a href="https://form.typeform.com/to/gUc15P3Y" target="_blank" class="navlink">
+              <div class="navlink-shape">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 9" fill="none">
+                  <path d="M5.41865 3.49143C3.14576 3.15439 1.49507 1.71979 1.00247 0H0V8.11499H1.00247C1.50371 6.3952 3.14576 4.9606 5.41865 4.62356V3.49143Z" fill="currentColor"/>
+                </svg>
+              </div>
+              <div>Book a call</div>
+            </a>
+          </nav>
+
+          <!-- Mood Selector -->
+          <div class="color-mode-selector">
+            <div class="mood-selector_text">
+              <div>Mood Selector</div>
+            </div>
+            <div class="mood-selector_colors">
+              <button color-mode="base" class="mood-color-wrap">
+                <div class="mood-color_circle is-orange"></div>
+                <div class="mood-color_text orange"><p>Timeless<br/>Clarity</p></div>
+              </button>
+              <button color-mode="red" class="mood-color-wrap">
+                <div class="mood-color_circle is-red"></div>
+                <div class="mood-color_text red"><p>Fearless<br/>Adventure</p></div>
+              </button>
+              <button color-mode="blue" class="mood-color-wrap">
+                <div class="mood-color_circle is-blue"></div>
+                <div class="mood-color_text blue"><p>Boundless<br/>Creativity</p></div>
+              </button>
+              <button color-mode="green" class="mood-color-wrap">
+                <div class="mood-color_circle is-green"></div>
+                <div class="mood-color_text green"><p>Friendly<br/>Horizon</p></div>
+              </button>
+              <button color-mode="white" class="mood-color-wrap">
+                <div class="mood-color_circle is-white"></div>
+                <div class="mood-color_text white"><p>Hyper<br/>Efficient</p></div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button class="menu-button">
+          <div>Menu</div>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════ -->
+  <main>
+    <section>
+      <div class="container">
+        <div class="hero_content-wrap">
+
+          <!-- Announcement / Marquee Bar -->
+          <div class="hero_marquee-wrap">
+            <div class="marquee_animation-line">
+              <div class="marquee-text"><p>IMPACTFUL BRANDS. U &amp; I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE &amp; IMPACTFUL BRANDS. U &amp; I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE &amp; IMPACTFUL BRANDS.</p></div>
+              <div class="marquee-text"><p>IMPACTFUL BRANDS. U &amp; I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE &amp; IMPACTFUL BRANDS. U &amp; I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE &amp; IMPACTFUL BRANDS.</p></div>
+              <div class="marquee-text"><p>IMPACTFUL BRANDS. U &amp; I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE &amp; IMPACTFUL BRANDS. U &amp; I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE &amp; IMPACTFUL BRANDS.</p></div>
+            </div>
+          </div>
+
+          <!-- Hero content area -->
+          <div class="hero_content">
+
+            <!-- Background pattern (generated via JS) -->
+            <div class="hero_pattern" id="heroPattern" style="opacity:0"></div>
+
+            <!-- Client logo overlays -->
+            <div class="hero_logos-wrap">
+              <div class="hero_logo-wrap is-1">
+                <div class="hero_logo-image">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979437cceddeedd90819d2_arcc.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-2">
+                <div class="hero_logo-image is-born">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/6797943804c478a11d1f11b3_born.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-3">
+                <div class="hero_logo-image is-deeps">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/6797943710f4665601f58015_deeps.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-2-1">
+                <div class="hero_logo-image is-experience">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438786b2e9dfa39447a_ee.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-2-2">
+                <div class="hero_logo-image is-empire">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679794377ac05ac372ee5ce6_empire.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-2-3">
+                <div class="hero_logo-image is-gunpowder">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/6797943731e75f5bdd7d5400_gunpodwer.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-3-1">
+                <div class="hero_logo-image is-ferucci">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979437cbe2163d844948a7_lf.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-3-2">
+                <div class="hero_logo-image is-meraki">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979437585820c87ebf04d5_meraki.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-7-1">
+                <div class="hero_logo-image">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438cdd90fa506cdac89_n1.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-7-2">
+                <div class="hero_logo-image is-naariy">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679794387710c144136d6b2d_naariy.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-9-1">
+                <div class="hero_logo-image is-presiaa">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438d581f88d7815c661_preisaa.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-11-1">
+                <div class="hero_logo-image is-timeless">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/6797943870be130ff0bbc746_timeless.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-13-1">
+                <div class="hero_logo-image is-sos">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438d581f88d7815c68c_sos.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-13-2">
+                <div class="hero_logo-image is-sat">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979437cdd90fa506cdac63_sat.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-13-3">
+                <div class="hero_logo-image is-urban">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438f81579e494e2251a_urban.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-16">
+                <div class="hero_logo-image is-wovoyage">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438dc3c639187a5a126_wovoyage.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-20">
+                <div class="hero_logo-image is-saba">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438ce3384324e5e5786_saba-hotel.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+              <div class="hero_logo-wrap is-25">
+                <div class="hero_logo-image is-ahi">
+                  <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67979438b2c5a31c814f99c0_jatin-abhi.svg" loading="lazy" alt=""/>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text content -->
+            <div class="hero_texts-wrap">
+              <div class="home-h1">
+                <h1 text-split>Getting it right <span>ain't</span> <span class="serif">easy.</span></h1>
+              </div>
+              <div class="hero_down-texts is-home">
+                <div class="hero-text">
+                  <p text-split>Reshaping SMEs, entrepreneurs, and startups with clear, targeted actionable strategies to sell your brand story.</p>
+                </div>
+                <div class="hero_fake-h1">
+                  <p text-split>That's why <span class="serif">I'm here.</span></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         WHAT WE DO SECTION
+    ═══════════════════════════════════ -->
+    <section>
+      <div class="container">
+        <div class="what-we-do_wrap">
+          <div class="what-we-do_content">
+
+            <!-- Photo + Arrows -->
+            <div class="wwd_photos-wrap">
+              <div class="wwd-photo">
+                <img src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67c59019f95d1e55c0708f7c_Home%20b-min.avif" loading="lazy" alt=""/>
+              </div>
+              <!-- 4 directional arrows around photo -->
+              <div class="wwd_arrows" style="opacity:0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 376 510" fill="none">
+                  <path d="M188.167 498C187.38 503.03 184.025 506.668 180 507.778V510H199V507.778C194.975 506.668 191.62 503.03 190.833 498H188.175H188.167Z" fill="currentColor"/>
+                  <path d="M190.833 12C191.62 6.97001 194.975 3.33246 199 2.22164L199 0L180 0L180 2.22164C184.025 3.33246 187.38 6.97001 188.167 12L190.825 12L190.833 12Z" fill="currentColor"/>
+                  <path d="M12 253.667C6.97001 252.88 3.33246 249.525 2.22164 245.5L0 245.5L0 264.5L2.22164 264.5C3.33246 260.475 6.97001 257.12 12 256.333L12 253.675L12 253.667Z" fill="currentColor"/>
+                  <path d="M364 256.333C369.03 257.12 372.668 260.475 373.778 264.5L376 264.5L376 245.5L373.778 245.5C372.668 249.525 369.03 252.88 364 253.667L364 256.325L364 256.333Z" fill="currentColor"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Two text columns -->
+            <div class="wwd_text-cols">
+              <div class="wwd_text-col first">
+                <div class="wwd_text-col_heading">
+                  <p class="t--col-heading" text-split>What we do?</p>
+                  <p class="t-balance" text-split>An innovative and gamified experience</p>
+                </div>
+                <p>With innovative, gamified, and engaging brand strategy workshops to master strategies that push your brand to the forefront, we aim to help create authentic and powerful brands that connect with your customers and drive growth.</p>
+              </div>
+              <div class="wwd_text-col second">
+                <div class="wwd_text-col_heading">
+                  <p class="t--col-heading" text-split>How we do?</p>
+                  <p class="col-heading_width" text-split>A mentor &amp; a partner</p>
+                </div>
+                <p>We are committed to building a community where every entrepreneur feels empowered and inspired. Our goal is to be the mentor and partner in your entrepreneurial journey, encouraging well-being, inclusivity, and collaboration, making a lasting difference in the lives of those we work with.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CTA Button -->
+          <a href="https://form.typeform.com/to/gUc15P3Y" target="_blank" class="wwd_button">
+            <div class="button-text">
+              <p text-split>From <span class="serif">Vision</span> to Brand <span class="serif">Mastery</span></p>
+              <div class="button-text_line" style="width:0px"></div>
+            </div>
+            <div class="button-icon">
+              <div class="icon-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                  <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         WORKSHOPS SECTION
+    ═══════════════════════════════════ -->
+    <section class="workshops-section">
+      <div class="container">
+        <div class="workshops_block">
+          <!-- Animated divider line at top -->
+          <div class="block-line"></div>
+
+          <div class="content-wrap">
+            <!-- Heading row -->
+            <div class="h2_text-wrap">
+              <h2 text-split>Workshops</h2>
+              <div class="h2_text is-workshop">
+                <p text-split>"U and I", a match made in heaven.</p>
+              </div>
+            </div>
+
+            <!-- Cards + text -->
+            <div class="workshop_cards-text">
+
+              <!-- 3 Workshop Cards -->
+              <div class="workshop-cards">
+
+                <!-- Card 1: Brand Strategy -->
+                <a href="/workshops" class="workshop-card is-first">
+                  <div class="wshop-card_title-arrow">
+                    <div class="wshop-card_title">
+                      <h3>Brand Strategy</h3>
+                    </div>
+                    <div class="button-icon">
+                      <div class="icon-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                          <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wshop-card_illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 195 180" fill="none">
+                      <g clip-path="url(#clip_card1)">
+                        <path d="M179.44 12.6699C174.21 16.5499 168.04 16.9799 163.59 14.5399L161.57 16.5599L177.83 32.8199L179.85 30.7999C177.41 26.3499 177.84 20.1799 181.72 14.9499L179.44 12.6699Z" fill="currentColor"/>
+                        <path d="M95.5799 12.71C94.6199 19.15 90.5599 23.82 85.6899 25.24V28.09H108.69V25.24C103.82 23.82 99.7599 19.15 98.7999 12.71H95.5799Z" fill="currentColor"/>
+                        <path d="M14.85 12.71C13.89 19.15 9.82996 23.82 4.95996 25.24V28.09H27.96V25.24C23.09 23.82 19.03 19.15 18.07 12.71H14.85Z" fill="currentColor"/>
+                        <path d="M181.67 88.1102C175.23 87.1502 170.56 83.0902 169.14 78.2202H166.29V101.22H169.14C170.56 96.3502 175.23 92.2902 181.67 91.3302V88.1102Z" fill="currentColor"/>
+                        <path d="M98.7001 85.9399C93.4701 89.8199 87.3001 90.2499 82.8501 87.8099L80.8301 89.8299L97.0901 106.09L99.1101 104.07C96.6701 99.6199 97.1001 93.4499 100.98 88.2199L98.7001 85.9399Z" fill="currentColor"/>
+                        <path d="M17.9701 85.9399C12.7401 89.8199 6.5701 90.2499 2.1201 87.8099L0.100098 89.8299L16.3601 106.09L18.3801 104.07C15.9401 99.6199 16.3701 93.4499 20.2501 88.2199L17.9701 85.9399Z" fill="currentColor"/>
+                        <path d="M181.67 161.38C175.23 160.42 170.56 156.36 169.14 151.49H166.29V174.49H169.14C170.56 169.62 175.23 165.56 181.67 164.6V161.38Z" fill="currentColor"/>
+                        <path d="M98.7001 159.2C93.4701 163.08 87.3001 163.51 82.8501 161.07L80.8301 163.09L97.0901 179.35L99.1101 177.33C96.6701 172.88 97.1001 166.71 100.98 161.48L98.7001 159.2Z" fill="currentColor"/>
+                        <path d="M17.9699 159.2C12.7399 163.08 6.56985 163.51 2.11985 161.07L0.0998535 163.09L16.3599 179.35L18.3799 177.33C15.9399 172.88 16.3699 166.71 20.2499 161.48L17.9699 159.2Z" fill="currentColor"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <!-- Card border draw animation overlays -->
+                  <div class="draw-animation-lines">
+                    <div class="draw-animation-line is-second"></div>
+                    <div class="draw-animation-line is-fourth"></div>
+                    <div class="draw-animation_top-lines">
+                      <div class="animation-line_first-left"></div>
+                      <div class="animation-line_first-right"></div>
+                    </div>
+                    <div class="draw-animation_bottom-lines">
+                      <div class="animation-line_bottom-left"></div>
+                      <div class="animation-line_bottom-right"></div>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Card 2: Personal Branding -->
+                <a href="/workshops" class="workshop-card is-second">
+                  <div class="wshop-card_title-arrow">
+                    <div class="wshop-card_title">
+                      <h3>Personal Branding</h3>
+                    </div>
+                    <div class="button-icon">
+                      <div class="icon-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                          <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wshop-card_illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 194 179" fill="none">
+                      <g clip-path="url(#clip_card2)">
+                        <path d="M175.2 20.1001C180.4 16.2501 186.52 15.8201 190.94 18.2501L192.94 16.2501L176.79 0.100098L174.79 2.1001C177.22 6.5201 176.79 12.6401 172.94 17.8401L175.2 20.1001Z" fill="currentColor"/>
+                        <path d="M98.1199 20.0596C99.0699 13.6595 103.1 9.02955 107.94 7.61955V4.78955H85.0999V7.61955C89.9399 9.02955 93.9699 13.6595 94.9199 20.0596H98.1199Z" fill="currentColor"/>
+                        <path d="M20.1001 17.8396C16.2501 12.6396 15.8201 6.51961 18.2501 2.09961L16.2501 0.0996094L0.100098 16.2496L2.1001 18.2496C6.5201 15.8196 12.6401 16.2496 17.8401 20.0996L20.1001 17.8396Z" fill="currentColor"/>
+                        <path d="M172.98 90.6997C179.38 91.6497 184.01 95.6797 185.42 100.52H188.25V77.6797H185.42C184.01 82.5197 179.38 86.5497 172.98 87.4997V90.6997Z" fill="currentColor"/>
+                        <path d="M94.9199 85.3799C93.9699 91.7799 89.9399 96.4099 85.0999 97.8199V100.65H107.94V97.8199C103.1 96.4099 99.0699 91.7799 98.1199 85.3799H94.9199Z" fill="currentColor"/>
+                        <path d="M20.06 87.5002C13.66 86.5502 9.03004 82.5202 7.62004 77.6802H4.79004V100.52H7.62004C9.03004 95.6802 13.66 91.6502 20.06 90.7002V87.5002Z" fill="currentColor"/>
+                        <path d="M172.94 160.36C176.79 165.56 177.22 171.68 174.79 176.1L176.79 178.1L192.94 161.95L190.94 159.95C186.52 162.38 180.4 161.95 175.2 158.1L172.94 160.36Z" fill="currentColor"/>
+                        <path d="M94.9199 158.14C93.9699 164.54 89.9399 169.17 85.0999 170.58V173.41H107.94V170.58C103.1 169.17 99.0699 164.54 98.1199 158.14H94.9199Z" fill="currentColor"/>
+                        <path d="M17.8399 158.1C12.6399 161.95 6.51985 162.38 2.09985 159.95L0.0998535 161.95L16.2499 178.1L18.2499 176.1C15.8199 171.68 16.2499 165.56 20.0999 160.36L17.8399 158.1Z" fill="currentColor"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="draw-animation-lines">
+                    <div class="draw-animation-line is-second"></div>
+                    <div class="draw-animation-line is-fourth"></div>
+                    <div class="draw-animation_top-lines">
+                      <div class="animation-line_first-left"></div>
+                      <div class="animation-line_first-right"></div>
+                    </div>
+                    <div class="draw-animation_bottom-lines">
+                      <div class="animation-line_bottom-left"></div>
+                      <div class="animation-line_bottom-right"></div>
+                    </div>
+                  </div>
+                </a>
+
+                <!-- Card 3: One-on-one -->
+                <a href="/one-on-one" class="workshop-card is-third">
+                  <div class="wshop-card_title-arrow">
+                    <div class="wshop-card_title">
+                      <h3>One-on-one</h3>
+                    </div>
+                    <div class="button-icon">
+                      <div class="icon-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                          <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wshop-card_illustration">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 185 170" fill="none">
+                      <g clip-path="url(#clip_card3)">
+                        <path d="M168.92 13.2099C175.35 14.1699 180 18.2099 181.42 23.0699H184.26V0.129883H181.42C180.01 4.98988 175.35 9.03988 168.92 9.98988V13.1999V13.2099Z" fill="currentColor"/>
+                        <path d="M93.7397 15.34C94.6997 8.91 98.7397 4.26 103.6 2.84V0H80.6597V2.84C85.5197 4.25 89.5697 8.91 90.5197 15.34H93.7297H93.7397Z" fill="currentColor"/>
+                        <path d="M15.34 10.0001C8.91 9.04014 4.26 5.00014 2.84 0.140137H0V23.0801H2.84C4.25 18.2201 8.91 14.1701 15.34 13.2201V10.0101V10.0001Z" fill="currentColor"/>
+                        <path d="M168.92 86.29C175.35 87.25 180 91.29 181.42 96.15H184.26V73.21H181.42C180.01 78.07 175.35 82.12 168.92 83.07V86.28V86.29Z" fill="currentColor"/>
+                        <path d="M90.5299 80.9502C89.5699 87.3802 85.5299 92.0302 80.6699 93.4502V96.2902H103.61V93.4502C98.7499 92.0402 94.6999 87.3802 93.7499 80.9502H90.5399H90.5299Z" fill="currentColor"/>
+                        <path d="M15.34 83.07C8.91 82.11 4.26 78.07 2.84 73.21H0V96.15H2.84C4.25 91.29 8.91 87.24 15.34 86.29V83.08V83.07Z" fill="currentColor"/>
+                        <path d="M168.92 159.36C175.35 160.32 180 164.36 181.42 169.22H184.26V146.28H181.42C180.01 151.14 175.35 155.19 168.92 156.14V159.35V159.36Z" fill="currentColor"/>
+                        <path d="M90.5299 154.02C89.5699 160.45 85.5299 165.1 80.6699 166.52V169.36H103.61V166.52C98.7499 165.11 94.6999 160.45 93.7499 154.02H90.5399H90.5299Z" fill="currentColor"/>
+                        <path d="M15.34 156.15C8.91 155.19 4.26 151.15 2.84 146.29H0V169.23H2.84C4.25 164.37 8.91 160.32 15.34 159.37V156.16V156.15Z" fill="currentColor"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="draw-animation-lines">
+                    <div class="draw-animation-line is-second"></div>
+                    <div class="draw-animation-line is-fourth"></div>
+                    <div class="draw-animation_top-lines">
+                      <div class="animation-line_first-left"></div>
+                      <div class="animation-line_first-right"></div>
+                    </div>
+                    <div class="draw-animation_bottom-lines">
+                      <div class="animation-line_bottom-left"></div>
+                      <div class="animation-line_bottom-right"></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Text below cards -->
+              <div class="workshop_texts">
+                <div class="workshop_main-text">
+                  <p text-split>We focus on practical insights and provide a clear path forward to help you build an unforgettable and iconic brand</p>
+                </div>
+                <ul role="list" class="workshop_ol">
+                  <li class="workshop_li">
+                    <div class="workshop-li_number"><div>1</div></div>
+                    <div class="workshop-li_text-wrap">
+                      <p class="t--wshop-li-title" text-split>Gain clarity </p>
+                      <p class="workshop-li_desc" text-split>with our proven strategies that work.</p>
+                    </div>
+                  </li>
+                  <li class="workshop_li">
+                    <div class="workshop-li_number"><div>2</div></div>
+                    <div class="workshop-li_text-wrap">
+                      <p class="t--wshop-li-title" text-split>Build confidence &amp; skills </p>
+                      <p class="workshop-li_desc" text-split>to create a story that engages your audience.</p>
+                    </div>
+                  </li>
+                  <li class="workshop_li">
+                    <div class="workshop-li_number"><div>3</div></div>
+                    <div class="workshop-li_text-wrap">
+                      <p class="t--wshop-li-title" text-split>Drive progress </p>
+                      <p class="workshop-li_desc" text-split>and see results with quick, steady actions.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         ORANGE BANNER SECTION
+    ═══════════════════════════════════ -->
+    <section>
+      <div class="container">
+        <div class="banner">
+          <div class="banner_content-wrap">
+            <div class="banner_title">
+              <h2 text-split>Stop playing Hide &amp; Seek with your brand's strategy</h2>
+            </div>
+            <a href="https://form.typeform.com/to/gUc15P3Y" target="_blank" class="banner_button">
+              <div class="button-text">
+                <div class="text-base">
+                  <p text-split>Ready to build an <span class="serif black-underline">unforgettable</span> brand?</p>
+                  <div style="width:0px" class="banner-button_line is-1"></div>
+                </div>
+              </div>
+              <div class="button-icon">
+                <div class="icon-arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                    <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+         ABOUT / BORN FROM ENTREPRENEURIAL SPIRIT
+    ═══════════════════════════════════ -->
+    <section>
+      <div class="container">
+        <div class="about-block">
+          <div class="content-wrap wide">
+
+            <!-- Heading row -->
+            <div class="h2_text-wrap">
+              <div class="about-h2">
+                <h2 text-split>Born from Entrepreneurial Spirit</h2>
+              </div>
+              <div class="_5-col-w">
+                <div class="h2_text">
+                  <p text-split>Being dyslexic means I've always seen the world a bit differently—think of it as <span class="serif">my secret superpower.</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Video area with arrows -->
+            <div class="about_photo-wrap">
+              <div class="about-photo">
+                <video autoplay loop muted playsinline style="background-image:url('https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea%2F67c1dc01a3d84ef41a418a75_wide%20screen-poster-00001.jpg'); background-size:cover;">
+                  <source src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea%2F67c1dc01a3d84ef41a418a75_wide%20screen-transcode.mp4" type="video/mp4"/>
+                  <source src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea%2F67c1dc01a3d84ef41a418a75_wide%20screen-transcode.webm" type="video/webm"/>
+                </video>
+              </div>
+              <!-- Directional arrows around video -->
+              <div class="_1-1_hero-arrows" style="opacity:0">
+                <div class="_11-hero-arrow is-left">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 16" fill="none">
+                    <path d="M12 6.84954C6.97001 6.18962 3.33246 3.37627 2.22164 0.000243782L0 0.000243701L-8.30516e-07 15.9356L2.22164 15.9356C3.33246 12.5596 6.97001 9.74626 12 9.08633L12 6.85649L12 6.84954Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="_11-hero-arrow is-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 19 11" fill="none">
+                    <path d="M10.8335 10.6765C11.6203 6.45784 14.9747 3.40701 19 2.47536L19 0.612056L1.04907e-06 0.612054L8.54851e-07 2.47536C4.02528 3.40701 7.37969 6.45784 8.16652 10.6765L10.8252 10.6765L10.8335 10.6765Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="_11-hero-arrow is-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 16" fill="none">
+                    <path d="M-3.5697e-07 9.08625C5.02999 9.74617 8.66754 12.5595 9.77836 15.9355L12 15.9355L12 0.000155963L9.77836 0.000156044C8.66754 3.37618 5.02999 6.18953 -4.73546e-07 6.84946L-3.57332e-07 9.0793L-3.5697e-07 9.08625Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="_11-hero-arrow bottom">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 19 11" fill="none">
+                    <path d="M8.16652 0C7.37969 4.21867 4.02528 7.2695 0 8.20115V10.0645H19V8.20115C14.9747 7.2695 11.6203 4.21867 10.8335 0H8.1748H8.16652Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text content below video -->
+            <div class="about_texts-content">
+              <div class="about_main-text">
+                <p text-split>The Brand Professor is my way of sharing this hard-earned wisdom, mixing sharp creativity and compelling storytelling with practical results.</p>
+              </div>
+              <div class="about_text-button">
+                <div class="about-text">
+                  <p text-split>If you think you can forget what you learn here, good luck with that!</p>
+                </div>
+                <a href="/about" class="about-button">
+                  <div class="button-text is-about">
+                    <div class="text-base">
+                      <p text-split>Discover more about<br/>how I became a game-changer</p>
+                      <div style="width:0px" class="about-button-line is-1"></div>
+                    </div>
+                  </div>
+                  <div class="button-icon">
+                    <div class="icon-arrow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                        <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ═══════════════════════════════════
+         CTA SECTION
+    ═══════════════════════════════════ -->
+    <section id="cta-section">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="cta-block">
+          <div class="block-line"></div>
+          <div class="cta-content">
+            <div class="cta-text">
+              <p>Together, we're creating a future where every brand we work with becomes an unforgettable story.</p>
+            </div>
+            <div class="cta-slogan">
+              <p text-split>U &amp; I, <span class="serif">let's rock</span>!!</p>
+            </div>
+            <div class="cta-arrows" style="opacity:0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 803 19" fill="none">
+                <path d="M12 8.16652C6.97001 7.37969 3.33246 4.02528 2.22164 -4.27426e-07L-1.94467e-07 -5.24537e-07L-1.02498e-06 19L2.22164 19C3.33246 14.9747 6.97001 11.6203 12 10.8335L12 8.1748L12 8.16652Z" fill="currentColor"/>
+                <path d="M791 10.8335C796.03 11.6203 799.668 14.9747 800.778 19L803 19L803 1.43099e-07L800.778 1.16606e-07C799.668 4.02528 796.03 7.37969 791 8.16652L791 10.8252L791 10.8335Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer id="footer" class="footer">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="footer-wrap">
+        <!-- Footer Logo (Lottie, one per theme) -->
+        <a href="#" class="footer-logo">
+          <lottie-player class="lottie-logo content-base"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-logo content-red"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-logo content-blue"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-logo content-green"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+          <lottie-player class="lottie-logo content-white"
+            src="https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+            background="transparent" speed="1" loop autoplay></lottie-player>
+        </a>
+
+        <!-- Footer Info -->
+        <div class="footer_info-wrap">
+          <!-- Address block -->
+          <address class="footer_address">
+            <div class="address-wrap">
+              <p text-split>General Inquiries</p>
+              <a href="mailto:sahil@brand-professor.com" class="textlink" text-split>sahil@brand-professor.com</a>
+            </div>
+            <div class="address-wrap">
+              <p text-split>Hornchurch, UK</p>
+              <p text-split>Chandigarh, IN</p>
+            </div>
+            <div class="address-wrap">
+              <a href="https://www.linkedin.com/in/yourbrandprofessor/" target="_blank" class="textlink" text-split>LI</a>
+              <a href="https://www.instagram.com/sahilgandhi_brandprofessor/" target="_blank" class="textlink" text-split>IG</a>
+            </div>
+          </address>
+
+          <!-- Right column: nav links + form -->
+          <div class="footer-form-content">
+            <!-- Navigation links -->
+            <div class="footer_navigation-links">
+              <div class="footer_line"></div>
+              <a href="/workshops" class="footer-btn foot-btn-hor">
+                <div text-split>Next page</div>
+                <div class="footer-btn_icon">
+                  <div class="footer_arrow arrow-hor">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 26" fill="none">
+                      <path d="M23.5287 11.7408L23.5287 10.9912C19.8517 10.6943 16.1889 8.27595 16.196 0.858398H19.4204C19.4204 9.51338 26.3006 11.7125 29.8785 11.7408V14.6965C26.3288 14.6965 19.4204 16.9239 19.4204 25.5788L16.196 25.5789C16.196 18.1542 19.8235 15.7147 23.5287 15.446L23.5287 14.6965H0.0951781L0.0668945 11.7125L23.5287 11.7408Z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <div class="footer-arrow-hover-hor">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 45 26" fill="none">
+                      <path d="M30.3877 0.838745C30.3806 8.25629 34.0434 10.6746 37.7204 10.9716C37.703 12.4576 37.7133 13.9403 37.7204 15.4264C34.0152 15.6951 30.3877 18.1346 30.3877 25.5592L33.6121 25.5592C33.6121 16.9042 40.5205 14.6768 44.0702 14.6768V11.7211C40.4923 11.6928 33.6121 9.49373 33.6121 0.838745H30.3877Z" fill="currentColor"/>
+                      <path d="M15.3877 0.838745C15.3806 8.25629 19.0434 10.6746 22.7204 10.9716C22.703 12.4576 22.7133 13.9403 22.7204 15.4264C19.0152 15.6951 15.3877 18.1346 15.3877 25.5592L18.6121 25.5592C18.6121 16.9042 25.5205 14.6768 29.0702 14.6768V11.7211C25.4923 11.6928 18.6121 9.49373 18.6121 0.838745H15.3877Z" fill="currentColor"/>
+                      <path d="M0.360118 0.838745C0.353046 8.25629 4.01586 10.6746 7.69282 10.9716C7.67545 12.4576 7.68576 13.9403 7.69281 15.4264C3.98757 15.6951 0.360118 18.1346 0.360118 25.5592L3.58453 25.5592C3.58453 16.9042 10.493 14.6768 14.0426 14.6768V11.7211C10.4647 11.6928 3.58453 9.49373 3.58453 0.838745H0.360118Z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+              <a href="#header" class="footer-btn foot-btn-vert">
+                <div text-split>Back to top</div>
+                <div class="footer-btn_icon foot-btn-vert">
+                  <div class="footer-icon-top">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 26 31" fill="none">
+                      <path d="M11.7212 6.759L10.9717 6.759C10.6747 10.436 8.25642 14.0988 0.838867 14.0917L0.838867 10.8673C9.49385 10.8673 11.693 3.98714 11.7212 0.40918L14.6769 0.40918C14.6769 3.95886 16.9043 10.8673 25.5593 10.8673L25.5593 14.0917C18.1347 14.0917 15.6952 10.4642 15.4265 6.759L14.6769 6.759L14.6769 30.1925L11.693 30.2208L11.7212 6.759Z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                  <div class="footer-arrow-hover-vert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 26 45" fill="none">
+                      <path d="M0.494873 14.0264C7.91242 14.0335 10.3307 10.3707 10.6277 6.69372C12.1137 6.71108 13.5964 6.70078 15.0825 6.69372C15.3512 10.399 17.7907 14.0264 25.2153 14.0264L25.2153 10.802C16.5603 10.802 14.333 3.89358 14.333 0.343901L11.3772 0.343901C11.349 3.92186 9.14986 10.802 0.494873 10.802L0.494873 14.0264Z" fill="currentColor"/>
+                      <path d="M0.494873 29.0264C7.91242 29.0335 10.3307 25.3707 10.6277 21.6937C12.1137 21.7111 13.5964 21.7008 15.0825 21.6937C15.3512 25.399 17.7907 29.0264 25.2153 29.0264L25.2153 25.802C16.5603 25.802 14.333 18.8936 14.333 15.3439L11.3772 15.3439C11.349 18.9219 9.14986 25.802 0.494873 25.802L0.494873 29.0264Z" fill="currentColor"/>
+                      <path d="M0.494873 44.054C7.91242 44.0611 10.3307 40.3983 10.6277 36.7213C12.1137 36.7387 13.5964 36.7284 15.0825 36.7213C15.3512 40.4265 17.7907 44.054 25.2153 44.054L25.2153 40.8296C16.5603 40.8296 14.333 33.9212 14.333 30.3715L11.3772 30.3715C11.349 33.9494 9.14986 40.8296 0.494873 40.8296L0.494873 44.054Z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Title + Form -->
+            <div class="footer_title-form">
+              <p text-split>Let's build an Unforgettable &amp; Iconic (U &amp; I) Brand.</p>
+              <div class="footer-form">
+                <form id="footer-form" class="footer-form" onsubmit="return false;">
+                  <input class="footer-input w-input" maxlength="256" name="Email" placeholder="Your email" type="email" required/>
+                  <button type="submit" class="button-icon is-footer arrow-rotate" onclick="handleFooterForm(this)">
+                    <div class="icon-arrow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                        <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                  </button>
+                </form>
+              </div>
+              <a href="https://form.typeform.com/to/gUc15P3Y" target="_blank" class="banner_button arrow-rotate footer-button">
+                <div class="button-text is-banner">
+                  <div class="text-base">
+                    <p text-split>Book a call </p>
+                    <div class="banner-button_line is-1"></div>
+                    <div class="banner-button_line is-2"></div>
+                  </div>
+                </div>
+                <div class="button-icon is-banner">
+                  <div class="icon-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24" fill="none">
+                      <path d="M16.6798 5.24996L16.1498 4.71996C13.3398 7.10996 9.03982 7.98996 3.79982 2.73996L6.07982 0.459961C12.1998 6.57996 18.6198 3.26996 21.1698 0.759962L23.2598 2.84996C20.7498 5.35996 17.4398 11.82 23.5598 17.94L21.2798 20.22C16.0298 14.97 16.8698 10.68 19.2998 7.86996L18.7698 7.33996L2.19982 23.91L0.0698242 21.82L16.6798 5.24996Z" fill="currentColor"/>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="t--footer-copyright" text-split>&copy; Brand Professor 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════
+       SCRIPTS
+  ═══════════════════════════════════ -->
+  <script>
+    // ═══════════════════════════════════
+    // COLOR MODE / MOOD SELECTOR
+    // ═══════════════════════════════════
+    function setColorMode(mode) {
+      const body = document.body;
+
+      // Remove all theme classes
+      body.classList.remove('u-theme-red', 'u-theme-green', 'u-theme-blue', 'u-theme-white');
+
+      // Add the selected theme class (base = no class)
+      if (mode !== 'base') {
+        body.classList.add('u-theme-' + mode);
+      }
+
+      // Persist choice
+      localStorage.setItem('colorMode', mode);
+
+      // Toggle content-* elements (logos, etc.)
+      var allContent = document.querySelectorAll('.content-base, .content-green, .content-blue, .content-red, .content-white');
+      allContent.forEach(function(el) {
+        el.style.display = el.classList.contains('content-' + mode) ? 'block' : 'none';
+      });
+
+      // Hide the active button, show the rest
+      var allButtons = document.querySelectorAll('[color-mode]');
+      allButtons.forEach(function(btn) {
+        btn.style.display = btn.getAttribute('color-mode') === mode ? 'none' : 'flex';
+      });
+    }
+
+    // Init on DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+      var savedMode = localStorage.getItem('colorMode') || 'base';
+      setColorMode(savedMode);
+
+      var switchers = document.querySelectorAll('[color-mode]');
+      switchers.forEach(function(switcher) {
+        switcher.addEventListener('click', function() {
+          setColorMode(switcher.getAttribute('color-mode'));
+        });
+      });
+    });
+
+    // Generate the arrow/play-button pattern SVG programmatically
+    // The original has ~1000 small arrow shapes in a grid pattern
+    (function generateHeroPattern() {
+      const container = document.getElementById('heroPattern');
+      const viewW = 1339, viewH = 630;
+      const cols = 40, rows = 40;
+      const spacingX = viewW / cols;
+      const spacingY = viewH / rows;
+
+      // The arrow/play shape path (pointing right)
+      const arrowRight = "M5.42 3.49C3.15 3.15 1.5 1.72 1 0H0V8.11H1C1.5 6.4 3.15 4.96 5.42 4.62V3.49Z";
+      // Pointing left (mirrored)
+      const arrowLeft = "M0 3.49C2.27 3.15 3.93 1.72 4.42 0H5.42V8.11H4.42C3.92 6.4 2.27 4.96 0 4.62V3.49Z";
+
+      // Accent indices (randomly ~2% of total)
+      const totalShapes = cols * rows;
+      const accentSet = new Set();
+      const seed = 42;
+      for (let i = 0; i < 18; i++) {
+        accentSet.add((seed * (i + 1) * 7 + i * 13) % totalShapes);
+      }
+
+      let paths = '';
+      let idx = 0;
+      for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+          const x = col * spacingX;
+          const y = row * spacingY;
+          const isAccent = accentSet.has(idx);
+          const cls = isAccent ? ' class="shape-accent"' : '';
+
+          // Alternate direction based on row
+          const d = row % 2 === 0 ? arrowRight : arrowLeft;
+
+          paths += `<path d="${d}" fill="currentColor"${cls} transform="translate(${x.toFixed(1)},${y.toFixed(1)})"/>`;
+          idx++;
+        }
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${viewW} ${viewH}" fill="none" preserveAspectRatio="xMidYMid slice"><g>${paths}</g></svg>`;
+      container.innerHTML = svg;
+      container.style.opacity = '1';
+    })();
+
+    // Logo cycling: randomly show/hide logos
+    (function cycleBrandLogos() {
+      const wraps = document.querySelectorAll('.hero_logo-wrap');
+      const images = document.querySelectorAll('.hero_logo-image');
+
+      function showRandom() {
+        // Hide all
+        images.forEach(img => img.style.opacity = '0');
+
+        // Pick 2-4 random ones to show
+        const count = 2 + Math.floor(Math.random() * 3);
+        const indices = [];
+        while (indices.length < count) {
+          const r = Math.floor(Math.random() * images.length);
+          if (!indices.includes(r)) indices.push(r);
+        }
+        indices.forEach(i => {
+          images[i].style.opacity = '1';
+        });
+      }
+
+      showRandom();
+      setInterval(showRandom, 2500);
+    })();
+
+    // ── Scroll-triggered animations for Workshops section ──
+
+    // 1. Block-line: grows from 0% to 100% width as section scrolls into view
+    (function initBlockLineAnimation() {
+      const section = document.querySelector('.workshops-section');
+      const blockLine = section ? section.querySelector('.block-line') : null;
+      if (!section || !blockLine) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Use scroll progress within the section
+            const onScroll = () => {
+              const rect = section.getBoundingClientRect();
+              const viewH = window.innerHeight;
+              // Progress: 0 when section top hits viewport bottom, 1 when section top reaches viewport top
+              const progress = Math.min(1, Math.max(0, (viewH - rect.top) / (viewH + rect.height)));
+              // Map to 0-100% with a cap at 65% scroll progress -> full width
+              const lineProgress = Math.min(100, (progress / 0.65) * 100);
+              blockLine.style.width = lineProgress + '%';
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+          }
+        });
+      }, { threshold: 0 });
+      observer.observe(section);
+    })();
+
+    // 2. Workshop card border draw animation (triggered when cards scroll into view)
+    (function initCardDrawAnimation() {
+      const cards = document.querySelectorAll('.workshop-card');
+      if (!cards.length) return;
+
+      cards.forEach((card, cardIndex) => {
+        const topLeft = card.querySelector('.animation-line_first-left');
+        const topRight = card.querySelector('.animation-line_first-right');
+        const sideRight = card.querySelector('.draw-animation-line.is-second');
+        const sideLeft = card.querySelector('.draw-animation-line.is-fourth');
+        const bottomLeft = card.querySelector('.animation-line_bottom-left');
+        const bottomRight = card.querySelector('.animation-line_bottom-right');
+
+        if (!topLeft) return;
+
+        // Initial state: overlays cover borders
+        topLeft.style.width = '50%';
+        topRight.style.width = '50%';
+        sideRight.style.height = '100%';
+        sideLeft.style.height = '100%';
+        bottomLeft.style.width = '50%';
+        bottomRight.style.width = '50%';
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              observer.unobserve(card);
+              const delay = cardIndex * 150; // stagger each card
+
+              // Step 1: Top lines shrink (reveal top border)
+              setTimeout(() => {
+                topLeft.style.transition = 'width 350ms ease';
+                topRight.style.transition = 'width 350ms ease';
+                topLeft.style.width = '0%';
+                topRight.style.width = '0%';
+              }, delay);
+
+              // Step 2: Side lines shrink (reveal side borders)
+              setTimeout(() => {
+                sideRight.style.transition = 'height 550ms ease';
+                sideLeft.style.transition = 'height 550ms ease';
+                sideRight.style.height = '0%';
+                sideLeft.style.height = '0%';
+              }, delay + 350);
+
+              // Step 3: Bottom lines shrink (reveal bottom border)
+              setTimeout(() => {
+                bottomLeft.style.transition = 'width 350ms ease';
+                bottomRight.style.transition = 'width 350ms ease';
+                bottomLeft.style.width = '0%';
+                bottomRight.style.width = '0%';
+              }, delay + 350 + 550);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        observer.observe(card);
+      });
+    })();
+
+    // 3. CTA block-line scroll-progress animation (same as workshops block-line)
+    (function initCtaBlockLine() {
+      const ctaSection = document.getElementById('cta-section');
+      if (!ctaSection) return;
+      const line = ctaSection.querySelector('.block-line');
+      if (!line) return;
+
+      function onScroll() {
+        const rect = ctaSection.getBoundingClientRect();
+        const viewH = window.innerHeight;
+        // Start when section enters viewport, complete at 65% progress
+        const start = viewH;
+        const end = -rect.height * 0.35;
+        const progress = Math.min(1, Math.max(0, (start - rect.top) / (start - end)));
+        // Map progress: 0% at keyframe 0, 100% at keyframe 65
+        const pct = Math.min(100, progress / 0.65 * 100);
+        line.style.width = pct + '%';
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+          } else {
+            window.removeEventListener('scroll', onScroll);
+          }
+        });
+      }, { threshold: 0 });
+      observer.observe(ctaSection);
+    })();
+
+    // 4. CTA arrows fade-in on scroll
+    (function initCtaArrowsFade() {
+      const arrows = document.querySelector('.cta-arrows');
+      if (!arrows) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            arrows.style.transition = 'opacity 0.6s ease';
+            arrows.style.opacity = '1';
+            observer.unobserve(arrows);
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(arrows);
+    })();
+
+    // 5. Footer "Back to top" smooth scroll
+    (function initBackToTop() {
+      const backToTop = document.querySelector('.foot-btn-vert');
+      if (!backToTop) return;
+      backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+
+    // 6. Footer form handler (demo)
+    window.handleFooterForm = function(btn) {
+      const form = btn.closest('form');
+      const input = form.querySelector('input[type="email"]');
+      if (input && input.value) {
+        input.value = '';
+        // Brief visual feedback
+        btn.style.transform = 'rotate(45deg)';
+        setTimeout(() => { btn.style.transform = ''; }, 400);
+      }
+    };
+
+    // ═══════════════════════════════════
+    // 7. TEXT SPLIT + SLIDE-UP ANIMATION (SplitType + GSAP + ScrollTrigger)
+    // ═══════════════════════════════════
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elements = document.querySelectorAll('[text-split]');
+
+      setTimeout(function() {
+        elements.forEach(function(element) {
+          // Split text into lines and words
+          var typeSplit = new SplitType(element, {
+            types: 'lines, words',
+            tagName: 'span'
+          });
+
+          // Ensure element is visible (SplitType may hide it)
+          gsap.set(element, { visibility: 'visible' });
+
+          // Animate each line: slide up from below + fade in
+          gsap.from(element.querySelectorAll('.line'), {
+            y: '100%',
+            opacity: 0,
+            duration: 0.4,
+            ease: 'power2.out',
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: element,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            }
+          });
+        });
+
+        ScrollTrigger.refresh();
+      }, 50);
+    });
+
+    // ═══════════════════════════════════
+    // 8. OPACITY FADE-IN FOR DECORATIVE ELEMENTS
+    // ═══════════════════════════════════
+    (function initFadeIns() {
+      var fadeTargets = [
+        document.getElementById('heroPattern'),
+        document.querySelector('.wwd_arrows'),
+        document.querySelector('._1-1_hero-arrows')
+        // .cta-arrows is already handled in section 4 above
+      ];
+
+      fadeTargets.forEach(function(el) {
+        if (!el) return;
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              el.style.transition = 'opacity 0.6s ease';
+              el.style.opacity = '1';
+              observer.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(el);
+      });
+    })();
+
+    // ═══════════════════════════════════
+    // 9. LENIS SMOOTH SCROLL
+    // ═══════════════════════════════════
+    (function initLenis() {
+      var lenis = new Lenis({
+        lerp: 0.1,
+        wheelMultiplier: 0.7,
+        gestureOrientation: 'vertical',
+        normalizeWheel: false,
+        smoothTouch: false
+      });
+
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Connect Lenis scroll to GSAP ScrollTrigger so they work together
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function(time) {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    })();
+  </script>
+
+</body>
+</html>
