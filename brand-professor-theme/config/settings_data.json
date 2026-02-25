@@ -38,6 +38,27 @@
           "nav_6": { "type": "navlink", "settings": { "label": "Book a call", "url": "https://form.typeform.com/to/gUc15P3Y" } }
         },
         "block_order": ["nav_1", "nav_2", "nav_3", "nav_4", "nav_5", "nav_6"]
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "lottie_base": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json",
+          "lottie_red": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json",
+          "lottie_blue": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json",
+          "lottie_green": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json",
+          "lottie_white": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json",
+          "lottie_purple": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json",
+          "inquiries_label": "General Inquiries",
+          "email": "sahil@brand-professor.com",
+          "location_1": "Hornchurch, UK",
+          "location_2": "Chandigarh, IN",
+          "linkedin_url": "https://www.linkedin.com/in/brand-professor/",
+          "instagram_url": "https://www.instagram.com/brand.professor/",
+          "next_page_url": "/workshops",
+          "form_title": "Let's build an Unforgettable & Iconic (U & I) Brand.",
+          "book_call_text": "Book a call",
+          "book_call_url": "https://form.typeform.com/to/gUc15P3Y"
+        }
       }
     },
     "content_for_index": []
