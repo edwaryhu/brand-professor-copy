@@ -1,0 +1,29 @@
+<section class="section-404">
+  <div class="container" style="padding: 6rem 1rem; text-align: center;">
+    <h1 style="font-size: 4rem; margin-bottom: 1rem;">404</h1>
+    <p style="font-size: 1.25rem; margin-bottom: 2rem;">{{ section.settings.subheading }}</p>
+    <a href="/" class="btn-primary" style="display: inline-block; padding: .875rem 2rem; background: var(--_color-mode---accent); color: var(--_color-mode---background); border-radius: .5rem; font-weight: 500;">
+      {{ section.settings.button_label }}
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "404 Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Page not found"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Back to home"
+    }
+  ]
+}
+{% endschema %}

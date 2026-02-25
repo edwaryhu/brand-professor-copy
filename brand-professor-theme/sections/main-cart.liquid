@@ -1,0 +1,30 @@
+<section>
+  <div class="container" style="padding: 4rem 1rem;">
+    <h1>Cart</h1>
+    {%- if cart.item_count > 0 -%}
+      {%- for item in cart.items -%}
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--_color-mode---shape);">
+          <div>
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            <p style="opacity: .7;">{{ item.price | money }} x {{ item.quantity }}</p>
+          </div>
+          <p>{{ item.line_price | money }}</p>
+        </div>
+      {%- endfor -%}
+      <div style="text-align: right; margin-top: 2rem;">
+        <p style="font-size: 1.25rem; font-weight: 500;">Total: {{ cart.total_price | money }}</p>
+        <a href="/checkout" style="display: inline-block; padding: .875rem 2rem; background: var(--_color-mode---accent); color: var(--_color-mode---background); border-radius: .5rem; font-weight: 500; margin-top: 1rem;">Checkout</a>
+      </div>
+    {%- else -%}
+      <p style="margin-top: 2rem;">Your cart is empty.</p>
+      <a href="/" style="display: inline-block; margin-top: 1rem; color: var(--_color-mode---accent);">Continue shopping</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

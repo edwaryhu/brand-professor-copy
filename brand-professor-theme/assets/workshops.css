@@ -1,0 +1,261 @@
+/* ══════════════════════════════════════
+   WORKSHOPS SECTION
+   ══════════════════════════════════════ */
+.workshops_block {
+  padding-top: 6.25rem;
+  padding-bottom: 6.25rem;
+  position: relative;
+}
+.block-line {
+  background-color: var(--_color-mode---text-main);
+  width: 0%;
+  height: .0625rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.content-wrap {
+  grid-column-gap: 5rem;
+  grid-row-gap: 5rem;
+  flex-flow: column;
+  display: flex;
+}
+.h2_text-wrap {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+h2 {
+  letter-spacing: -.015em;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 110%;
+}
+h3 {
+  letter-spacing: -.015em;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 110%;
+}
+.h2_text {
+  letter-spacing: -.015em;
+  width: 27.125rem;
+  font-size: 2rem;
+  line-height: 110%;
+}
+.h2_text.is-workshop {
+  text-align: right;
+}
+
+/* ── Workshop Cards Grid ── */
+.workshop_cards-text {
+  grid-column-gap: 5rem;
+  grid-row-gap: 5rem;
+  flex-flow: column;
+  display: flex;
+}
+.workshop-cards {
+  grid-column-gap: 1.25rem;
+  grid-row-gap: 1.25rem;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+.workshop-card {
+  grid-column-gap: 4.9375rem;
+  grid-row-gap: 4.9375rem;
+  aspect-ratio: 1;
+  border: .0625rem solid var(--_color-mode---text-main);
+  border-radius: 1.25rem;
+  flex-flow: column;
+  padding-top: 1.5rem;
+  padding-left: 1.75rem;
+  padding-right: 1.5rem;
+  display: flex;
+  position: relative;
+  overflow: visible;
+}
+.wshop-card_title-arrow {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.wshop-card_title-arrow:hover {
+  font-family: 'Bw Beto Grande', Georgia, sans-serif;
+}
+.wshop-card_title-arrow:hover .icon-arrow {
+  transform: rotate(45deg);
+}
+.wshop-card_title {
+  max-width: 12rem;
+}
+.wshop-card_illustration {
+  color: var(--_color-mode---accent);
+  align-self: center;
+  width: 12.125rem;
+  display: flex;
+}
+
+/* ── Card Border Draw Animation ── */
+.draw-animation-lines {
+  z-index: 5;
+  pointer-events: none;
+  position: absolute;
+  inset: -1%;
+}
+.draw-animation-line {
+  z-index: 4;
+  background-color: var(--_color-mode---background);
+  position: absolute;
+}
+.draw-animation-line.is-second {
+  width: 1.5rem;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+}
+.draw-animation-line.is-fourth {
+  width: 1.5rem;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+}
+.draw-animation_top-lines {
+  height: .6rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.animation-line_first-left {
+  background-color: var(--_color-mode---background);
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+.animation-line_first-right {
+  background-color: var(--_color-mode---background);
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.draw-animation_bottom-lines {
+  height: .6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.animation-line_bottom-left {
+  z-index: 1;
+  background-color: var(--_color-mode---background);
+  width: 50%;
+  height: .5rem;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+}
+.animation-line_bottom-right {
+  z-index: 2;
+  background-color: var(--_color-mode---background);
+  width: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+/* ── Workshop text area below cards ── */
+.workshop_texts {
+  grid-column-gap: 4.125rem;
+  grid-row-gap: 4.125rem;
+  display: flex;
+}
+.workshop_main-text {
+  letter-spacing: -.015em;
+  max-width: 24.1875rem;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+.workshop_ol {
+  grid-column-gap: 1.875rem;
+  grid-row-gap: 1.875rem;
+  flex-flow: column;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+}
+.workshop_li {
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  flex: none;
+  display: flex;
+}
+.workshop_li::before {
+  display: none;
+}
+.workshop-li_number {
+  letter-spacing: -.015em;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+.workshop-li_text-wrap {
+  letter-spacing: -.015em;
+  line-height: 160%;
+}
+.t--wshop-li-title {
+  letter-spacing: -.015em;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  margin: 0;
+}
+.workshop-li_desc {
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 991px) {
+  .h2_text-wrap {
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .workshop-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .workshop-card {
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .workshop_texts {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 479px) {
+  .workshop-cards {
+    grid-template-columns: 1fr;
+  }
+  .wshop-card_title h3 {
+    font-size: 1.5rem;
+  }
+  .wshop-card_illustration {
+    width: 10rem;
+  }
+  .workshops_block {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

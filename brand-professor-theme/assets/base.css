@@ -1,0 +1,55 @@
+/* ══════════════════════════════════════
+   BASE STYLES — Brand Professor Theme
+   ══════════════════════════════════════ */
+
+/* @font-face declarations are in snippets/font-face.liquid (needs Liquid asset_url) */
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+a { color: inherit; text-decoration: none; user-select: none; }
+button { background-color: unset; padding: unset; border: none; cursor: pointer; text-align: inherit; color: inherit; font-family: inherit; }
+
+/* ── Fluid font size (matches Webflow calc) ── */
+html { font-size: calc(0.21875rem + 0.9375vw); }
+@media screen and (max-width: 1920px) { html { font-size: calc(0.21875rem + 0.9375vw); } }
+@media screen and (max-width: 1440px) { html { font-size: calc(0.198rem + 0.891vw); } }
+@media screen and (max-width: 991px)  { html { font-size: calc(0.758rem + 0.391vw); } }
+@media screen and (max-width: 479px)  { html { font-size: calc(0.749rem + 0.837vw); } }
+
+/* ── Body ── */
+body {
+  background-color: var(--_color-mode---background);
+  color: var(--_color-mode---text-main);
+  font-family: Borna, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  line-height: 150%;
+  overflow-x: hidden;
+  transition: background-color .4s ease, color .4s ease;
+}
+
+/* ── Text-split animation base ── */
+[text-split] { word-break: break-word; }
+[text-split] .line { display: inline-block; white-space: nowrap; overflow: hidden; }
+
+/* ── Serif italic class ── */
+.serif {
+  font-family: 'Bw Beto Grande', Georgia, sans-serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: 85.75rem;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ── Section defaults ── */
+section {
+  position: relative;
+  max-width: 100vw;
+  overflow: clip;
+}

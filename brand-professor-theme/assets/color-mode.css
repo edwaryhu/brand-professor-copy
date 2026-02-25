@@ -1,0 +1,101 @@
+/* ══════════════════════════════════════
+   COLOR MODE — 5 Theme Variable Mappings
+   ══════════════════════════════════════ */
+
+/* ── Default: Base / Orange ── */
+:root {
+  --_color-mode---background: var(--swatch--efficient-black);
+  --_color-mode---text-main: var(--swatch--efficient-white);
+  --_color-mode---banner-bg: var(--swatch--professional-accent-orange);
+  --_color-mode---banner-text: var(--swatch--efficient-black);
+  --_color-mode---shape: var(--swatch--shape-gray);
+  --_color-mode---accent: var(--swatch--professional-accent-orange);
+  --_color-mode---icon: var(--swatch--efficient-white);
+  --_color-mode---banner-icon: var(--swatch--efficient-black);
+  --_color-mode---footer-text: var(--swatch--efficient-black);
+  --_color-mode---footer-border: var(--swatch--professional-accent-orange);
+  --_color-mode---footer-bg: var(--swatch--professional-accent-orange);
+}
+
+/* ── Red: Fearless Adventure ── */
+.u-theme-red {
+  --_color-mode---background: var(--swatch--adventurous-dark-red);
+  --_color-mode---text-main: var(--swatch--adventurous-light-red);
+  --_color-mode---banner-bg: var(--swatch--adventurous-light-red);
+  --_color-mode---banner-text: var(--swatch--adventurous-dark-red);
+  --_color-mode---shape: var(--swatch--shape-red);
+  --_color-mode---accent: var(--swatch--adventurous-light-red);
+  --_color-mode---icon: var(--swatch--adventurous-light-red);
+  --_color-mode---banner-icon: var(--swatch--adventurous-dark-red);
+  --_color-mode---footer-text: var(--swatch--adventurous-dark-red);
+  --_color-mode---footer-border: var(--swatch--adventurous-light-red);
+  --_color-mode---footer-bg: var(--swatch--adventurous-light-red);
+}
+
+/* ── Blue: Boundless Creativity ── */
+.u-theme-blue {
+  --_color-mode---background: var(--swatch--creative-dark-blue);
+  --_color-mode---text-main: var(--swatch--creative-light-blue);
+  --_color-mode---banner-bg: var(--swatch--creative-light-blue);
+  --_color-mode---banner-text: var(--swatch--creative-dark-blue);
+  --_color-mode---shape: var(--swatch--shape-blue);
+  --_color-mode---accent: var(--swatch--creative-light-blue);
+  --_color-mode---icon: var(--swatch--creative-light-blue);
+  --_color-mode---banner-icon: var(--swatch--creative-dark-blue);
+  --_color-mode---footer-text: var(--swatch--creative-dark-blue);
+  --_color-mode---footer-border: var(--swatch--creative-light-blue);
+  --_color-mode---footer-bg: var(--swatch--creative-light-blue);
+}
+
+/* ── Green: Friendly Horizon ── */
+.u-theme-green {
+  --_color-mode---background: var(--swatch--friendly-dark-green);
+  --_color-mode---text-main: var(--swatch--friendly-light-green);
+  --_color-mode---banner-bg: var(--swatch--friendly-light-green);
+  --_color-mode---banner-text: var(--swatch--friendly-dark-green);
+  --_color-mode---shape: var(--swatch--shape-green);
+  --_color-mode---accent: var(--swatch--friendly-light-green);
+  --_color-mode---icon: var(--swatch--friendly-light-green);
+  --_color-mode---banner-icon: var(--swatch--friendly-dark-green);
+  --_color-mode---footer-text: var(--swatch--friendly-dark-green);
+  --_color-mode---footer-border: var(--swatch--friendly-light-green);
+  --_color-mode---footer-bg: var(--swatch--friendly-light-green);
+}
+
+/* ── White: Hyper Efficient ── */
+.u-theme-white {
+  --_color-mode---background: var(--swatch--efficient-black);
+  --_color-mode---text-main: var(--swatch--efficient-white);
+  --_color-mode---banner-bg: var(--swatch--efficient-white);
+  --_color-mode---banner-text: var(--swatch--efficient-black);
+  --_color-mode---shape: var(--swatch--shape-gray);
+  --_color-mode---accent: var(--swatch--efficient-white);
+  --_color-mode---icon: var(--swatch--efficient-white);
+  --_color-mode---banner-icon: var(--swatch--efficient-black);
+  --_color-mode---footer-text: var(--swatch--efficient-white);
+  --_color-mode---footer-border: var(--swatch--efficient-white);
+  --_color-mode---footer-bg: var(--swatch--efficient-black);
+}
+
+/* ── Purple: Mystic Vision ── */
+.u-theme-purple {
+  --_color-mode---background: var(--swatch--mystic-dark-purple);
+  --_color-mode---text-main: var(--swatch--mystic-light-purple);
+  --_color-mode---banner-bg: var(--swatch--mystic-light-purple);
+  --_color-mode---banner-text: var(--swatch--mystic-dark-purple);
+  --_color-mode---shape: var(--swatch--shape-purple);
+  --_color-mode---accent: var(--swatch--mystic-light-purple);
+  --_color-mode---icon: var(--swatch--mystic-light-purple);
+  --_color-mode---banner-icon: var(--swatch--mystic-dark-purple);
+  --_color-mode---footer-text: var(--swatch--mystic-dark-purple);
+  --_color-mode---footer-border: var(--swatch--mystic-light-purple);
+  --_color-mode---footer-bg: var(--swatch--mystic-light-purple);
+}
+
+/* ── Content visibility per theme ── */
+.content-base { display: block; }
+.content-red,
+.content-green,
+.content-blue,
+.content-white,
+.content-purple { display: none; }

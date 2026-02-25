@@ -1,0 +1,23 @@
+<section>
+  <div class="container" style="padding: 4rem 1rem;">
+    <h1>{{ collection.title }}</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 2rem; margin-top: 2rem;">
+      {%- for product in collection.products -%}
+        <a href="{{ product.url }}" style="display: block;">
+          {%- if product.featured_image -%}
+            <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" style="width: 100%; border-radius: .5rem;"/>
+          {%- endif -%}
+          <h3 style="margin-top: .75rem; font-size: 1rem;">{{ product.title }}</h3>
+          <p style="opacity: .7;">{{ product.price | money }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": []
+}
+{% endschema %}

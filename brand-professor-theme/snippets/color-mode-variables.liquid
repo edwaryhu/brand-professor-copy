@@ -1,0 +1,24 @@
+{%- comment -%}
+  Outputs CSS custom properties from theme settings for the swatch palette.
+  Include this in <head> via theme.liquid.
+{%- endcomment -%}
+<style>
+  :root {
+    --swatch--professional-accent-orange: {{ settings.swatch_professional_orange }};
+    --swatch--adventurous-light-red: {{ settings.swatch_adventurous_light_red }};
+    --swatch--creative-light-blue: {{ settings.swatch_creative_light_blue }};
+    --swatch--friendly-light-green: {{ settings.swatch_friendly_light_green }};
+    --swatch--efficient-white: {{ settings.swatch_efficient_white }};
+    --swatch--efficient-black: {{ settings.swatch_efficient_black }};
+    --swatch--adventurous-dark-red: {{ settings.swatch_adventurous_dark_red }};
+    --swatch--creative-dark-blue: {{ settings.swatch_creative_dark_blue }};
+    --swatch--friendly-dark-green: {{ settings.swatch_friendly_dark_green }};
+    --swatch--shape-gray: {{ settings.swatch_shape_gray }};
+    --swatch--shape-red: {{ settings.swatch_shape_red }};
+    --swatch--shape-blue: {{ settings.swatch_shape_blue }};
+    --swatch--shape-green: {{ settings.swatch_shape_green }};
+    --swatch--mystic-light-purple: {{ settings.swatch_mystic_light_purple }};
+    --swatch--mystic-dark-purple: {{ settings.swatch_mystic_dark_purple }};
+    --swatch--shape-purple: {{ settings.swatch_shape_purple }};
+  }
+</style>

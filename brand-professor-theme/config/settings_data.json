@@ -1,0 +1,45 @@
+{
+  "current": {
+    "swatch_professional_orange": "#ff8c1e",
+    "swatch_adventurous_light_red": "#ff3429",
+    "swatch_creative_light_blue": "#6584f8",
+    "swatch_friendly_light_green": "#8cc740",
+    "swatch_efficient_white": "#ffffff",
+    "swatch_efficient_black": "#000000",
+    "swatch_adventurous_dark_red": "#4f0d12",
+    "swatch_creative_dark_blue": "#010028",
+    "swatch_friendly_dark_green": "#002e0d",
+    "swatch_shape_gray": "#222222",
+    "swatch_shape_red": "#691315",
+    "swatch_shape_blue": "#101447",
+    "swatch_shape_green": "#0f3b30",
+    "swatch_mystic_light_purple": "#b07aff",
+    "swatch_mystic_dark_purple": "#1a0033",
+    "swatch_shape_purple": "#2d1854",
+    "default_color_mode": "base",
+    "show_mood_selector": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "lottie_base": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json",
+          "lottie_red": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a09347a1d25ee7b33f5cf6_BP_LOGO_ANIMATED_Adventurous%20Light%20Red.json",
+          "lottie_blue": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a09350ca51cabc4ec04019_BP_LOGO_ANIMATED_Creative%20Light%20Blue.json",
+          "lottie_green": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a0936d6bd476e8023219de_BP_LOGO_ANIMATED_Friendly%20Light%20Green.json",
+          "lottie_white": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json",
+          "lottie_purple": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+        },
+        "blocks": {
+          "nav_1": { "type": "navlink", "settings": { "label": "Workshops", "url": "/workshops" } },
+          "nav_2": { "type": "navlink", "settings": { "label": "One-on-one", "url": "/one-on-one" } },
+          "nav_3": { "type": "navlink", "settings": { "label": "Ebook", "url": "/ebook" } },
+          "nav_4": { "type": "navlink", "settings": { "label": "About", "url": "/about" } },
+          "nav_5": { "type": "navlink", "settings": { "label": "Resources", "url": "/resources" } },
+          "nav_6": { "type": "navlink", "settings": { "label": "Book a call", "url": "https://form.typeform.com/to/gUc15P3Y" } }
+        },
+        "block_order": ["nav_1", "nav_2", "nav_3", "nav_4", "nav_5", "nav_6"]
+      }
+    },
+    "content_for_index": []
+  }
+}

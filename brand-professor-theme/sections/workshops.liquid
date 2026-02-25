@@ -1,0 +1,162 @@
+{%- comment -%}
+  Workshops section: Heading + 3 Workshop Cards + Text + Numbered List
+{%- endcomment -%}
+
+{{ 'workshops.css' | asset_url | stylesheet_tag }}
+
+<section class="workshops-section">
+  <div class="container">
+    <div class="workshops_block">
+      <div class="block-line"></div>
+
+      <div class="content-wrap">
+        {%- comment -%} Heading row {%- endcomment -%}
+        <div class="h2_text-wrap">
+          <h2 text-split>{{ section.settings.heading }}</h2>
+          <div class="h2_text is-workshop">
+            <p text-split>{{ section.settings.subheading }}</p>
+          </div>
+        </div>
+
+        {%- comment -%} Cards + text {%- endcomment -%}
+        <div class="workshop_cards-text">
+
+          {%- comment -%} Workshop Cards {%- endcomment -%}
+          <div class="workshop-cards">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'workshop_card' -%}
+                <a href="{{ block.settings.url }}" class="workshop-card is-{{ forloop.index | append: '' }}" {{ block.shopify_attributes }}>
+                  <div class="wshop-card_title-arrow">
+                    <div class="wshop-card_title">
+                      <h3>{{ block.settings.title }}</h3>
+                    </div>
+                    <div class="button-icon">
+                      <div class="icon-arrow">
+                        {%- render 'icon-arrow-diagonal' -%}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="wshop-card_illustration">
+                    {{ block.settings.illustration_svg }}
+                  </div>
+                  <div class="draw-animation-lines">
+                    <div class="draw-animation-line is-second"></div>
+                    <div class="draw-animation-line is-fourth"></div>
+                    <div class="draw-animation_top-lines">
+                      <div class="animation-line_first-left"></div>
+                      <div class="animation-line_first-right"></div>
+                    </div>
+                    <div class="draw-animation_bottom-lines">
+                      <div class="animation-line_bottom-left"></div>
+                      <div class="animation-line_bottom-right"></div>
+                    </div>
+                  </div>
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {%- comment -%} Text below cards {%- endcomment -%}
+          <div class="workshop_texts">
+            <div class="workshop_main-text">
+              <p text-split>{{ section.settings.body_text }}</p>
+            </div>
+            <ul role="list" class="workshop_ol">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'list_item' -%}
+                  <li class="workshop_li" {{ block.shopify_attributes }}>
+                    <div class="workshop-li_number"><div>{{ block.settings.number }}</div></div>
+                    <div class="workshop-li_text-wrap">
+                      <p class="t--wshop-li-title" text-split>{{ block.settings.title }}</p>
+                      <p class="workshop-li_desc" text-split>{{ block.settings.description }}</p>
+                    </div>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Workshops",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Workshops"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "\"U and I\", a match made in heaven."
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "We focus on practical insights and provide a clear path forward to help you build an unforgettable and iconic brand"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "workshop_card",
+      "name": "Workshop Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Brand Strategy"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
+        {
+          "type": "html",
+          "id": "illustration_svg",
+          "label": "Illustration SVG"
+        }
+      ]
+    },
+    {
+      "type": "list_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Gain clarity"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "with our proven strategies that work."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Workshops"
+    }
+  ]
+}
+{% endschema %}

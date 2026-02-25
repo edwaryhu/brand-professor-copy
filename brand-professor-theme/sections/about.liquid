@@ -1,0 +1,172 @@
+{%- comment -%}
+  About section: Born from Entrepreneurial Spirit — Heading + Video + Text + CTA
+{%- endcomment -%}
+
+{{ 'about.css' | asset_url | stylesheet_tag }}
+
+<section>
+  <div class="container">
+    <div class="about-block">
+      <div class="content-wrap wide">
+
+        {%- comment -%} Heading row {%- endcomment -%}
+        <div class="h2_text-wrap">
+          <div class="about-h2">
+            <h2 text-split>{{ section.settings.heading }}</h2>
+          </div>
+          <div class="_5-col-w">
+            <div class="h2_text">
+              <p text-split>{{ section.settings.subheading }}</p>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} Video area with arrows {%- endcomment -%}
+        <div class="about_photo-wrap">
+          <div class="about-photo">
+            <video autoplay loop muted playsinline
+              {%- if section.settings.video_poster != blank %} style="background-image:url('{{ section.settings.video_poster }}'); background-size:cover;"{% endif -%}>
+              {%- if section.settings.video_mp4 != blank -%}
+                <source src="{{ section.settings.video_mp4 }}" type="video/mp4"/>
+              {%- endif -%}
+              {%- if section.settings.video_webm != blank -%}
+                <source src="{{ section.settings.video_webm }}" type="video/webm"/>
+              {%- endif -%}
+            </video>
+          </div>
+          <div class="_1-1_hero-arrows" style="opacity:0">
+            <div class="_11-hero-arrow is-left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 16" fill="none">
+                <path d="M12 6.84954C6.97001 6.18962 3.33246 3.37627 2.22164 0.000243782L0 0.000243701L-8.30516e-07 15.9356L2.22164 15.9356C3.33246 12.5596 6.97001 9.74626 12 9.08633L12 6.85649L12 6.84954Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="_11-hero-arrow is-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 19 11" fill="none">
+                <path d="M10.8335 10.6765C11.6203 6.45784 14.9747 3.40701 19 2.47536L19 0.612056L1.04907e-06 0.612054L8.54851e-07 2.47536C4.02528 3.40701 7.37969 6.45784 8.16652 10.6765L10.8252 10.6765L10.8335 10.6765Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="_11-hero-arrow is-right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 12 16" fill="none">
+                <path d="M-3.5697e-07 9.08625C5.02999 9.74617 8.66754 12.5595 9.77836 15.9355L12 15.9355L12 0.000155963L9.77836 0.000156044C8.66754 3.37618 5.02999 6.18953 -4.73546e-07 6.84946L-3.57332e-07 9.0793L-3.5697e-07 9.08625Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="_11-hero-arrow bottom">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 19 11" fill="none">
+                <path d="M8.16652 0C7.37969 4.21867 4.02528 7.2695 0 8.20115V10.0645H19V8.20115C14.9747 7.2695 11.6203 4.21867 10.8335 0H8.1748H8.16652Z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {%- comment -%} Text content below video {%- endcomment -%}
+        <div class="about_texts-content">
+          <div class="about_main-text">
+            <p text-split>{{ section.settings.body_text }}</p>
+          </div>
+          <div class="about_text-button">
+            <div class="about-text">
+              <p text-split>{{ section.settings.secondary_text }}</p>
+            </div>
+            <a href="{{ section.settings.button_url }}" class="about-button">
+              <div class="button-text is-about">
+                <div class="text-base">
+                  <p text-split>{{ section.settings.button_text }}</p>
+                  <div style="width:0px" class="about-button-line is-1"></div>
+                </div>
+              </div>
+              <div class="button-icon">
+                <div class="icon-arrow">
+                  {%- render 'icon-arrow-diagonal' -%}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Born from Entrepreneurial Spirit"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Being dyslexic means I've always seen the world a bit differently—think of it as <span class=\"serif\">my secret superpower.</span>"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "text",
+      "id": "video_mp4",
+      "label": "Video MP4 URL",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea%2F67c1dc01a3d84ef41a418a75_wide%20screen-transcode.mp4"
+    },
+    {
+      "type": "text",
+      "id": "video_webm",
+      "label": "Video WebM URL",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea%2F67c1dc01a3d84ef41a418a75_wide%20screen-transcode.webm"
+    },
+    {
+      "type": "text",
+      "id": "video_poster",
+      "label": "Video Poster URL",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea%2F67c1dc01a3d84ef41a418a75_wide%20screen-poster-00001.jpg"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "The Brand Professor is my way of sharing this hard-earned wisdom, mixing sharp creativity and compelling storytelling with practical results."
+    },
+    {
+      "type": "textarea",
+      "id": "secondary_text",
+      "label": "Secondary Text",
+      "default": "If you think you can forget what you learn here, good luck with that!"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Discover more about<br/>how I became a game-changer"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL",
+      "default": "/pages/about"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About"
+    }
+  ]
+}
+{% endschema %}

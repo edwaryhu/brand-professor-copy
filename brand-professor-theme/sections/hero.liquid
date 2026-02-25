@@ -1,0 +1,170 @@
+{%- comment -%}
+  Hero section: Marquee + Arrow Pattern + Client Logos + Headline Text
+{%- endcomment -%}
+
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+
+<section>
+  <div class="container">
+    <div class="hero_content-wrap">
+
+      {%- comment -%} Announcement / Marquee Bar {%- endcomment -%}
+      <div class="hero_marquee-wrap">
+        <div class="marquee_animation-line">
+          <div class="marquee-text"><p>{{ section.settings.marquee_text }}</p></div>
+          <div class="marquee-text"><p>{{ section.settings.marquee_text }}</p></div>
+          <div class="marquee-text"><p>{{ section.settings.marquee_text }}</p></div>
+        </div>
+      </div>
+
+      {%- comment -%} Hero content area {%- endcomment -%}
+      <div class="hero_content">
+
+        {%- comment -%} Background pattern (generated via JS) {%- endcomment -%}
+        <div class="hero_pattern" id="heroPattern"
+          data-cols="{{ section.settings.pattern_cols }}"
+          data-rows="{{ section.settings.pattern_rows }}"
+          style="opacity:0"></div>
+
+        {%- comment -%} Client logo overlays {%- endcomment -%}
+        <div class="hero_logos-wrap">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'client_logo' -%}
+              <div class="hero_logo-wrap {{ block.settings.position_class }}" {{ block.shopify_attributes }}>
+                <div class="hero_logo-image {{ block.settings.size_class }}">
+                  {%- if block.settings.logo_image != blank -%}
+                    <img src="{{ block.settings.logo_image | image_url: width: 200 }}" loading="lazy" alt="{{ block.settings.logo_alt }}"/>
+                  {%- elsif block.settings.logo_url != blank -%}
+                    <img src="{{ block.settings.logo_url }}" loading="lazy" alt="{{ block.settings.logo_alt }}"/>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        {%- comment -%} Text content {%- endcomment -%}
+        <div class="hero_texts-wrap">
+          <div class="home-h1" text-split>
+            {{ section.settings.heading }}
+          </div>
+          <div class="hero_down-texts is-home">
+            <div class="hero-text">
+              <p text-split>{{ section.settings.subheading }}</p>
+            </div>
+            <div class="hero_fake-h1" text-split>
+              {{ section.settings.second_heading }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'hero-pattern.js' | asset_url }}" defer></script>
+<script src="{{ 'hero-logos.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Marquee"
+    },
+    {
+      "type": "textarea",
+      "id": "marquee_text",
+      "label": "Marquee Text",
+      "default": "IMPACTFUL BRANDS. U & I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE & IMPACTFUL BRANDS. U & I LET'S ROCK. ON A MISSION TO BUILD 1,000 UNFORGETTABLE & IMPACTFUL BRANDS."
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Main Heading (use <em> for serif italic)",
+      "default": "<p>Getting it right <em>ain't</em> <em>easy.</em></p>"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Reshaping SMEs, entrepreneurs, and startups with clear, targeted actionable strategies to sell your brand story."
+    },
+    {
+      "type": "richtext",
+      "id": "second_heading",
+      "label": "Second Heading",
+      "default": "<p>That's why <em>I'm here.</em></p>"
+    },
+    {
+      "type": "header",
+      "content": "Arrow Pattern"
+    },
+    {
+      "type": "range",
+      "id": "pattern_cols",
+      "label": "Pattern Columns",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "pattern_rows",
+      "label": "Pattern Rows",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "client_logo",
+      "name": "Client Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "logo_url",
+          "label": "Logo URL (fallback if no image uploaded)"
+        },
+        {
+          "type": "text",
+          "id": "logo_alt",
+          "label": "Alt Text",
+          "default": "Client logo"
+        },
+        {
+          "type": "text",
+          "id": "position_class",
+          "label": "Position Class (e.g. is-1, is-2-1)",
+          "default": "is-1"
+        },
+        {
+          "type": "text",
+          "id": "size_class",
+          "label": "Size Class (e.g. is-born, is-empire)",
+          "info": "Leave blank for default size"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

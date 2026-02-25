@@ -1,0 +1,8 @@
+{%- comment -%}
+  Renders a single mood selector button.
+  Usage: {% render 'mood-button', mode: 'base', circle_class: 'is-orange', text_class: 'orange', line1: 'Timeless', line2: 'Clarity' %}
+{%- endcomment -%}
+<button color-mode="{{ mode }}" class="mood-color-wrap">
+  <div class="mood-color_circle {{ circle_class }}"></div>
+  <div class="mood-color_text {{ text_class }}"><p>{{ line1 }}<br/>{{ line2 }}</p></div>
+</button>

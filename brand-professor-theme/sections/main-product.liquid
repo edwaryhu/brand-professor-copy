@@ -1,0 +1,19 @@
+<section>
+  <div class="container" style="padding: 4rem 1rem;">
+    <h1>{{ product.title }}</h1>
+    <div>{{ product.description }}</div>
+    {%- form 'product', product -%}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}"/>
+      <button type="submit" style="padding: .875rem 2rem; background: var(--_color-mode---accent); color: var(--_color-mode---background); border-radius: .5rem; font-weight: 500; margin-top: 1.5rem;">
+        Add to cart — {{ product.selected_or_first_available_variant.price | money }}
+      </button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

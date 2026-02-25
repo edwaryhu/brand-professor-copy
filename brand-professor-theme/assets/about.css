@@ -1,0 +1,169 @@
+/* ══════════════════════════════════════
+   ABOUT / BORN FROM ENTREPRENEURIAL SPIRIT
+   ══════════════════════════════════════ */
+.about-block {
+  padding-top: 5rem;
+  padding-bottom: 11.25rem;
+}
+.content-wrap.wide {
+  grid-column-gap: 5rem;
+  grid-row-gap: 5rem;
+  flex-flow: column;
+  display: flex;
+}
+.about-h2 {
+  max-width: 31rem;
+}
+._5-col-w {
+  width: 100%;
+  max-width: 34.1875rem;
+}
+
+/* ── Video / Photo area ── */
+.about_photo-wrap {
+  width: 100%;
+  max-width: 77.625rem;
+  height: 38.8125rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.about-photo {
+  border-radius: .9375rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.about-photo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+._1-1_hero-arrows {
+  pointer-events: none;
+  color: var(--_color-mode---accent);
+  display: flex;
+  position: absolute;
+  inset: 0%;
+}
+._11-hero-arrow {
+  width: .9375rem;
+  display: flex;
+  position: absolute;
+}
+._11-hero-arrow.is-left {
+  top: 50%;
+  left: -2rem;
+  transform: translateY(-50%);
+}
+._11-hero-arrow.is-top {
+  width: 1.1875rem;
+  top: -2rem;
+  left: 50%;
+  transform: translate(-50%);
+}
+._11-hero-arrow.is-right {
+  top: 50%;
+  right: -2rem;
+  transform: translateY(-50%);
+}
+._11-hero-arrow.bottom {
+  width: 1.1875rem;
+  bottom: -2rem;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+/* ── Text content below video ── */
+.about_texts-content {
+  grid-column-gap: 1.75rem;
+  grid-row-gap: 1.75rem;
+  flex-flow: column;
+  display: flex;
+}
+.about_main-text {
+  letter-spacing: -.015em;
+  max-width: 22.4rem;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+.about_text-button {
+  grid-column-gap: 1.1875rem;
+  grid-row-gap: 1.1875rem;
+  flex-flow: column;
+  align-self: flex-end;
+  width: 100%;
+  max-width: 41.375rem;
+  display: flex;
+}
+.about-text {
+  letter-spacing: -.015em;
+  max-width: 25rem;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+}
+.about-button {
+  grid-column-gap: 7.0625rem;
+  grid-row-gap: 7.0625rem;
+  letter-spacing: -.015em;
+  justify-content: flex-start;
+  align-self: flex-end;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 110%;
+  display: flex;
+}
+.about-button:hover {
+  font-family: 'Bw Beto Grande', Georgia, sans-serif;
+}
+.about-button:hover .icon-arrow {
+  transform: rotate(45deg);
+}
+.about-button-line {
+  background-color: var(--_color-mode---text-main);
+  height: .0625rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.about-button-line.is-1 {
+  width: 100%;
+  max-width: 20rem;
+  top: 2.1rem;
+}
+.about-button:hover .about-button-line {
+  width: 100% !important;
+  transition: width .35s ease;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 991px) {
+  .about-block {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+  }
+  .about_photo-wrap {
+    height: 25rem;
+  }
+  .about_text-button {
+    align-self: flex-start;
+    max-width: 100%;
+  }
+  .about-button {
+    grid-column-gap: 3rem;
+  }
+  ._1-1_hero-arrows {
+    display: none;
+  }
+}
+@media screen and (max-width: 479px) {
+  .about_photo-wrap {
+    height: 18rem;
+  }
+  .about-button {
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}

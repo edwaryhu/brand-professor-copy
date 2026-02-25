@@ -1,0 +1,140 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Brand Professor",
+    "theme_version": "1.0.0",
+    "theme_author": "Brand Professor",
+    "theme_documentation_url": "https://brandprofessor.com",
+    "theme_support_email": "hello@brandprofessor.com"
+  },
+  {
+    "name": "Color Swatches",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Swatch Palette"
+      },
+      {
+        "type": "color",
+        "id": "swatch_professional_orange",
+        "label": "Professional Accent Orange",
+        "default": "#ff8c1e"
+      },
+      {
+        "type": "color",
+        "id": "swatch_adventurous_light_red",
+        "label": "Adventurous Light Red",
+        "default": "#ff3429"
+      },
+      {
+        "type": "color",
+        "id": "swatch_creative_light_blue",
+        "label": "Creative Light Blue",
+        "default": "#6584f8"
+      },
+      {
+        "type": "color",
+        "id": "swatch_friendly_light_green",
+        "label": "Friendly Light Green",
+        "default": "#8cc740"
+      },
+      {
+        "type": "color",
+        "id": "swatch_efficient_white",
+        "label": "Efficient White",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "swatch_efficient_black",
+        "label": "Efficient Black",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "swatch_adventurous_dark_red",
+        "label": "Adventurous Dark Red",
+        "default": "#4f0d12"
+      },
+      {
+        "type": "color",
+        "id": "swatch_creative_dark_blue",
+        "label": "Creative Dark Blue",
+        "default": "#010028"
+      },
+      {
+        "type": "color",
+        "id": "swatch_friendly_dark_green",
+        "label": "Friendly Dark Green",
+        "default": "#002e0d"
+      },
+      {
+        "type": "color",
+        "id": "swatch_shape_gray",
+        "label": "Shape Gray",
+        "default": "#222222"
+      },
+      {
+        "type": "color",
+        "id": "swatch_shape_red",
+        "label": "Shape Red",
+        "default": "#691315"
+      },
+      {
+        "type": "color",
+        "id": "swatch_shape_blue",
+        "label": "Shape Blue",
+        "default": "#101447"
+      },
+      {
+        "type": "color",
+        "id": "swatch_shape_green",
+        "label": "Shape Green",
+        "default": "#0f3b30"
+      },
+      {
+        "type": "color",
+        "id": "swatch_mystic_light_purple",
+        "label": "Mystic Light Purple",
+        "default": "#b07aff"
+      },
+      {
+        "type": "color",
+        "id": "swatch_mystic_dark_purple",
+        "label": "Mystic Dark Purple",
+        "default": "#1a0033"
+      },
+      {
+        "type": "color",
+        "id": "swatch_shape_purple",
+        "label": "Shape Purple",
+        "default": "#2d1854"
+      }
+    ]
+  },
+  {
+    "name": "Color Mode",
+    "settings": [
+      {
+        "type": "select",
+        "id": "default_color_mode",
+        "label": "Default Color Mode",
+        "options": [
+          { "value": "base", "label": "Base (Orange)" },
+          { "value": "red", "label": "Fearless Adventure (Red)" },
+          { "value": "blue", "label": "Boundless Creativity (Blue)" },
+          { "value": "green", "label": "Friendly Horizon (Green)" },
+          { "value": "white", "label": "Hyper Efficient (White)" },
+          { "value": "purple", "label": "Mystic Vision (Purple)" }
+        ],
+        "default": "base"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_mood_selector",
+        "label": "Show Mood Selector",
+        "default": true
+      }
+    ]
+  }
+]

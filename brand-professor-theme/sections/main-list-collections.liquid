@@ -1,0 +1,22 @@
+<section>
+  <div class="container" style="padding: 4rem 1rem;">
+    <h1>Collections</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 2rem; margin-top: 2rem;">
+      {%- for collection in collections -%}
+        <a href="{{ collection.url }}" style="display: block;">
+          {%- if collection.image -%}
+            <img src="{{ collection.image | image_url: width: 400 }}" alt="{{ collection.title }}" style="width: 100%; border-radius: .5rem;"/>
+          {%- endif -%}
+          <h3 style="margin-top: .75rem; font-size: 1rem;">{{ collection.title }}</h3>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collections List",
+  "settings": []
+}
+{% endschema %}

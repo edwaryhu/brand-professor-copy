@@ -1,0 +1,26 @@
+<section>
+  <div class="container" style="padding: 4rem 1rem;">
+    <h1>{{ blog.title }}</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 2rem; margin-top: 2rem;">
+      {%- for article in blog.articles -%}
+        <a href="{{ article.url }}" style="display: block;">
+          {%- if article.image -%}
+            <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}" style="width: 100%; border-radius: .5rem;"/>
+          {%- endif -%}
+          <h3 style="margin-top: .75rem; font-size: 1.125rem;">{{ article.title }}</h3>
+          <p style="opacity: .6; font-size: .875rem; margin-top: .25rem;">{{ article.published_at | date: '%B %d, %Y' }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- if blog.articles.size == 0 -%}
+      <p>No articles yet.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": []
+}
+{% endschema %}

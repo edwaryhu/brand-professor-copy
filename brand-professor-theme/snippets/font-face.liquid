@@ -1,0 +1,27 @@
+{%- comment -%}
+  @font-face declarations using Shopify asset_url filter.
+  Include this in <head> via theme.liquid.
+{%- endcomment -%}
+<style>
+  @font-face {
+    font-family: 'Borna';
+    src: url('{{ 'font-borna-400.woff2' | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Borna';
+    src: url('{{ 'font-borna-500.woff2' | asset_url }}') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Bw Beto Grande';
+    src: url('{{ 'font-bwbeto-500i.woff2' | asset_url }}') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+</style>

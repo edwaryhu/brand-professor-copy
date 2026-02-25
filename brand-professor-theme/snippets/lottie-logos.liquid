@@ -1,0 +1,22 @@
+{%- comment -%}
+  Renders 6 Lottie animated logos (one per theme, toggled by content-* classes).
+  Usage: {% render 'lottie-logos', lottie_base: section.settings.lottie_base, ... %}
+{%- endcomment -%}
+<lottie-player class="lottie-header content-base"
+  src="{{ lottie_base }}"
+  background="transparent" speed="1" loop autoplay></lottie-player>
+<lottie-player class="lottie-header content-red"
+  src="{{ lottie_red }}"
+  background="transparent" speed="1" loop autoplay></lottie-player>
+<lottie-player class="lottie-header content-blue"
+  src="{{ lottie_blue }}"
+  background="transparent" speed="1" loop autoplay></lottie-player>
+<lottie-player class="lottie-header content-green"
+  src="{{ lottie_green }}"
+  background="transparent" speed="1" loop autoplay></lottie-player>
+<lottie-player class="lottie-header content-white"
+  src="{{ lottie_white }}"
+  background="transparent" speed="1" loop autoplay></lottie-player>
+<lottie-player class="lottie-header content-purple"
+  src="{{ lottie_purple }}"
+  background="transparent" speed="1" loop autoplay></lottie-player>

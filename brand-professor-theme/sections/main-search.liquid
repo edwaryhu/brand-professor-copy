@@ -1,0 +1,29 @@
+<section>
+  <div class="container" style="padding: 4rem 1rem;">
+    <h1>Search</h1>
+    <form action="/search" method="get" style="margin-top: 1.5rem;">
+      <input type="text" name="q" value="{{ search.terms | escape }}" placeholder="Search..." style="width: 100%; max-width: 30rem; padding: .75rem 1rem; border: 1px solid var(--_color-mode---shape); border-radius: .5rem; background: transparent; color: var(--_color-mode---text-main); font-family: inherit; font-size: 1rem;"/>
+    </form>
+    {%- if search.performed -%}
+      {%- if search.results.size > 0 -%}
+        <div style="margin-top: 2rem;">
+          {%- for result in search.results -%}
+            <div style="padding: 1rem 0; border-bottom: 1px solid var(--_color-mode---shape);">
+              <a href="{{ result.url }}" style="font-size: 1.125rem; font-weight: 500;">{{ result.title }}</a>
+              <p style="opacity: .7; margin-top: .25rem;">{{ result.content | strip_html | truncate: 150 }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <p style="margin-top: 2rem;">No results found for "{{ search.terms }}".</p>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search",
+  "settings": []
+}
+{% endschema %}

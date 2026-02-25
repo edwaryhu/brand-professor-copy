@@ -1,0 +1,52 @@
+{%- comment -%}
+  CTA section: Centered text + slogan with decorative arrows
+{%- endcomment -%}
+
+{{ 'cta.css' | asset_url | stylesheet_tag }}
+
+<section id="cta-section">
+  <div class="container">
+    <div class="cta-block">
+      <div class="block-line"></div>
+      <div class="cta-content">
+        <div class="cta-text">
+          <p>{{ section.settings.text }}</p>
+        </div>
+        <div class="cta-slogan">
+          <p text-split>{{ section.settings.slogan }}</p>
+        </div>
+        <div class="cta-arrows" style="opacity:0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 803 19" fill="none">
+            <path d="M12 8.16652C6.97001 7.37969 3.33246 4.02528 2.22164 -4.27426e-07L-1.94467e-07 -5.24537e-07L-1.02498e-06 19L2.22164 19C3.33246 14.9747 6.97001 11.6203 12 10.8335L12 8.1748L12 8.16652Z" fill="currentColor"/>
+            <path d="M791 10.8335C796.03 11.6203 799.668 14.9747 800.778 19L803 19L803 1.43099e-07L800.778 1.16606e-07C799.668 4.02528 796.03 7.37969 791 8.16652L791 10.8252L791 10.8335Z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Together, we're creating a future where every brand we work with becomes an unforgettable story."
+    },
+    {
+      "type": "text",
+      "id": "slogan",
+      "label": "Slogan",
+      "default": "U & I, <span class=\"serif\">let's rock</span>!!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA"
+    }
+  ]
+}
+{% endschema %}

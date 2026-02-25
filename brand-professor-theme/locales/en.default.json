@@ -1,0 +1,16 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    }
+  },
+  "sections": {
+    "header": {
+      "name": "Header"
+    },
+    "hero": {
+      "name": "Hero"
+    }
+  }
+}

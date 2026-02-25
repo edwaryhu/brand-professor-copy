@@ -1,0 +1,160 @@
+{%- comment -%}
+  What We Do section: Photo + Arrows + Two text columns + CTA Button
+{%- endcomment -%}
+
+{{ 'what-we-do.css' | asset_url | stylesheet_tag }}
+
+<section>
+  <div class="container">
+    <div class="what-we-do_wrap">
+      <div class="what-we-do_content">
+
+        {%- comment -%} Photo + Arrows {%- endcomment -%}
+        <div class="wwd_photos-wrap">
+          <div class="wwd-photo">
+            {%- if section.settings.photo != blank -%}
+              <img src="{{ section.settings.photo | image_url: width: 640 }}" loading="lazy" alt="{{ section.settings.photo_alt }}"/>
+            {%- elsif section.settings.photo_url != blank -%}
+              <img src="{{ section.settings.photo_url }}" loading="lazy" alt="{{ section.settings.photo_alt }}"/>
+            {%- endif -%}
+          </div>
+          <div class="wwd_arrows" style="opacity:0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 376 510" fill="none">
+              <path d="M188.167 498C187.38 503.03 184.025 506.668 180 507.778V510H199V507.778C194.975 506.668 191.62 503.03 190.833 498H188.175H188.167Z" fill="currentColor"/>
+              <path d="M190.833 12C191.62 6.97001 194.975 3.33246 199 2.22164L199 0L180 0L180 2.22164C184.025 3.33246 187.38 6.97001 188.167 12L190.825 12L190.833 12Z" fill="currentColor"/>
+              <path d="M12 253.667C6.97001 252.88 3.33246 249.525 2.22164 245.5L0 245.5L0 264.5L2.22164 264.5C3.33246 260.475 6.97001 257.12 12 256.333L12 253.675L12 253.667Z" fill="currentColor"/>
+              <path d="M364 256.333C369.03 257.12 372.668 260.475 373.778 264.5L376 264.5L376 245.5L373.778 245.5C372.668 249.525 369.03 252.88 364 253.667L364 256.325L364 256.333Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        {%- comment -%} Two text columns {%- endcomment -%}
+        <div class="wwd_text-cols">
+          <div class="wwd_text-col first">
+            <div class="wwd_text-col_heading">
+              <p class="t--col-heading" text-split>{{ section.settings.col1_label }}</p>
+              <p class="t-balance" text-split>{{ section.settings.col1_heading }}</p>
+            </div>
+            <p>{{ section.settings.col1_body }}</p>
+          </div>
+          <div class="wwd_text-col second">
+            <div class="wwd_text-col_heading">
+              <p class="t--col-heading" text-split>{{ section.settings.col2_label }}</p>
+              <p class="col-heading_width" text-split>{{ section.settings.col2_heading }}</p>
+            </div>
+            <p>{{ section.settings.col2_body }}</p>
+          </div>
+        </div>
+
+      </div>
+
+      {%- comment -%} CTA Button {%- endcomment -%}
+      <a href="{{ section.settings.cta_url }}"{% if section.settings.cta_url contains '://' %} target="_blank"{% endif %} class="wwd_button">
+        <div class="button-text">
+          <p text-split>{{ section.settings.cta_text }}</p>
+          <div class="button-text_line" style="width:0px"></div>
+        </div>
+        <div class="button-icon">
+          <div class="icon-arrow">
+            {%- render 'icon-arrow-diagonal' -%}
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "What We Do",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Photo"
+    },
+    {
+      "type": "image_picker",
+      "id": "photo",
+      "label": "Photo"
+    },
+    {
+      "type": "text",
+      "id": "photo_url",
+      "label": "Photo URL (fallback)",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67c59019f95d1e55c0708f7c_Home%20b-min.avif"
+    },
+    {
+      "type": "text",
+      "id": "photo_alt",
+      "label": "Photo Alt Text",
+      "default": "Brand Professor"
+    },
+    {
+      "type": "header",
+      "content": "Column 1"
+    },
+    {
+      "type": "text",
+      "id": "col1_label",
+      "label": "Column 1 Label",
+      "default": "What we do?"
+    },
+    {
+      "type": "text",
+      "id": "col1_heading",
+      "label": "Column 1 Heading",
+      "default": "An innovative and gamified experience"
+    },
+    {
+      "type": "textarea",
+      "id": "col1_body",
+      "label": "Column 1 Body",
+      "default": "With innovative, gamified, and engaging brand strategy workshops to master strategies that push your brand to the forefront, we aim to help create authentic and powerful brands that connect with your customers and drive growth."
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "text",
+      "id": "col2_label",
+      "label": "Column 2 Label",
+      "default": "How we do?"
+    },
+    {
+      "type": "text",
+      "id": "col2_heading",
+      "label": "Column 2 Heading",
+      "default": "A mentor & a partner"
+    },
+    {
+      "type": "textarea",
+      "id": "col2_body",
+      "label": "Column 2 Body",
+      "default": "We are committed to building a community where every entrepreneur feels empowered and inspired. Our goal is to be the mentor and partner in your entrepreneurial journey, encouraging well-being, inclusivity, and collaboration, making a lasting difference in the lives of those we work with."
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text (use <span class=\"serif\"> for italic)",
+      "default": "From <span class=\"serif\">Vision</span> to Brand <span class=\"serif\">Mastery</span>"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL",
+      "default": "https://form.typeform.com/to/gUc15P3Y"
+    }
+  ],
+  "presets": [
+    {
+      "name": "What We Do"
+    }
+  ]
+}
+{% endschema %}

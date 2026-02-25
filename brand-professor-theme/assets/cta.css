@@ -1,0 +1,61 @@
+/* ══════════════════════════════════════
+   CTA SECTION
+   ══════════════════════════════════════ */
+.cta-block {
+  justify-content: center;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  display: flex;
+  position: relative;
+}
+.cta-content {
+  gap: 3.1875rem;
+  flex-flow: column;
+  width: 100%;
+  max-width: 41.125rem;
+  display: flex;
+  position: relative;
+}
+.cta-text {
+  text-align: center;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+  font-size: 2rem;
+  line-height: 110%;
+}
+.cta-slogan {
+  text-align: center;
+  letter-spacing: -.015em;
+  font-size: 4.375rem;
+  line-height: 110%;
+}
+.cta-arrows {
+  color: var(--_color-mode---accent);
+  position: absolute;
+  top: 2.8rem;
+  left: -4rem;
+  right: -4rem;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 991px) {
+  .cta-block {
+    padding-top: 4.375rem;
+  }
+  .cta-text {
+    font-size: 1.5rem;
+  }
+  .cta-slogan {
+    font-size: 2.625rem;
+  }
+  .cta-arrows {
+    left: -2.2rem;
+    right: -2.2rem;
+  }
+}
+@media screen and (max-width: 479px) {
+  .cta-text {
+    font-size: 1.4375rem;
+  }
+}

@@ -1,0 +1,168 @@
+/* ══════════════════════════════════════
+   WHAT WE DO SECTION
+   ══════════════════════════════════════ */
+.what-we-do_wrap {
+  flex-flow: column;
+  padding: 5rem 1.6875rem 7.2rem 3.375rem;
+  display: flex;
+}
+.what-we-do_content {
+  grid-column-gap: 12rem;
+  grid-row-gap: 12rem;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+.wwd_photos-wrap {
+  width: 20rem;
+  height: 27.3rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.wwd-photo {
+  border-radius: .9375rem;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.wwd-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.wwd_arrows {
+  pointer-events: none;
+  color: var(--_color-mode---accent);
+  display: flex;
+  position: absolute;
+  inset: -2rem;
+}
+.wwd_text-cols {
+  grid-column-gap: 2.5rem;
+  grid-row-gap: 2.5rem;
+  display: flex;
+}
+.wwd_text-col {
+  grid-column-gap: 2.5rem;
+  grid-row-gap: 2.5rem;
+  letter-spacing: -.015em;
+  flex-flow: column;
+  max-width: 20.1rem;
+  line-height: 160%;
+  display: flex;
+}
+.wwd_text-col.second {
+  max-width: 20.4rem;
+}
+.wwd_text-col.first {
+  max-width: 19.2rem;
+}
+.wwd_text-col_heading {
+  grid-column-gap: .5625rem;
+  grid-row-gap: .5625rem;
+  letter-spacing: -.015em;
+  flex-flow: column;
+  font-size: 1.5rem;
+  line-height: 1.875rem;
+  display: flex;
+}
+.t--col-heading {
+  letter-spacing: -.015em;
+  font-size: 1rem;
+  line-height: 160%;
+  margin: 0;
+}
+.col-heading_width {
+  max-width: 10rem;
+}
+.t-balance {
+  text-wrap: balance;
+  margin: 0;
+}
+
+/* ── CTA Button (From Vision to Brand Mastery) ── */
+.wwd_button {
+  grid-column-gap: 7.1875rem;
+  grid-row-gap: 7.1875rem;
+  letter-spacing: -.015em;
+  justify-content: flex-start;
+  align-self: flex-end;
+  align-items: center;
+  font-size: 2rem;
+  line-height: 110%;
+  display: flex;
+  margin-top: 2rem;
+  transition: font-family .35s ease;
+}
+.wwd_button:hover {
+  font-family: 'Bw Beto Grande', Georgia, sans-serif;
+}
+.wwd_button:hover .icon-arrow {
+  transform: rotate(45deg);
+}
+.button-text {
+  position: relative;
+}
+.button-text_line {
+  background-color: var(--_color-mode---text-main);
+  height: .0625rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  width: 0;
+  transition: width .35s ease;
+}
+.wwd_button:hover .button-text_line {
+  width: 100% !important;
+}
+.button-icon {
+  aspect-ratio: 1;
+  border: .0625rem solid var(--_color-mode---icon);
+  color: var(--_color-mode---icon);
+  border-radius: 100rem;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 3.875rem;
+  display: flex;
+}
+.icon-arrow {
+  width: 1.25rem;
+  transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+  display: flex;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 991px) {
+  .what-we-do_wrap {
+    padding: 3rem 1rem;
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+  }
+  .what-we-do_content {
+    grid-column-gap: 6rem;
+    grid-row-gap: 6rem;
+    flex-flow: column;
+  }
+  .wwd_text-cols {
+    flex-direction: column;
+  }
+  .wwd_button {
+    align-self: center;
+  }
+  .wwd_arrows {
+    display: none;
+  }
+}
+@media screen and (max-width: 479px) {
+  .wwd_photos-wrap {
+    width: 100%;
+    height: auto;
+  }
+  .wwd_button {
+    font-size: 1.5rem;
+    grid-column-gap: 3rem;
+  }
+}

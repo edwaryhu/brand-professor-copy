@@ -1,0 +1,124 @@
+{%- comment -%}
+  Header section: Navigation + Mood Selector
+{%- endcomment -%}
+
+{{ 'header.css' | asset_url | stylesheet_tag }}
+
+<header id="header" class="header">
+  <div class="container">
+    <div class="header-content">
+
+      {%- comment -%} Animated Lottie Logo (one per theme) {%- endcomment -%}
+      <a href="/" class="header_logo">
+        {%- render 'lottie-logos',
+          lottie_base: section.settings.lottie_base,
+          lottie_red: section.settings.lottie_red,
+          lottie_blue: section.settings.lottie_blue,
+          lottie_green: section.settings.lottie_green,
+          lottie_white: section.settings.lottie_white,
+          lottie_purple: section.settings.lottie_purple
+        -%}
+      </a>
+
+      {%- comment -%} Nav + Mood Selector {%- endcomment -%}
+      <div class="menu-wrap">
+        <nav class="menu-navigation">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'navlink' -%}
+              {%- render 'navlink', url: block.settings.url, label: block.settings.label -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </nav>
+
+        {%- if settings.show_mood_selector -%}
+          <div class="color-mode-selector">
+            <div class="mood-selector_text">
+              <div>Mood Selector</div>
+            </div>
+            <div class="mood-selector_colors">
+              {%- render 'mood-button', mode: 'base', circle_class: 'is-orange', text_class: 'orange', line1: 'Timeless', line2: 'Clarity' -%}
+              {%- render 'mood-button', mode: 'red', circle_class: 'is-red', text_class: 'red', line1: 'Fearless', line2: 'Adventure' -%}
+              {%- render 'mood-button', mode: 'blue', circle_class: 'is-blue', text_class: 'blue', line1: 'Boundless', line2: 'Creativity' -%}
+              {%- render 'mood-button', mode: 'green', circle_class: 'is-green', text_class: 'green', line1: 'Friendly', line2: 'Horizon' -%}
+              {%- render 'mood-button', mode: 'white', circle_class: 'is-white', text_class: 'white', line1: 'Hyper', line2: 'Efficient' -%}
+              {%- render 'mood-button', mode: 'purple', circle_class: 'is-purple', text_class: 'purple', line1: 'Mystic', line2: 'Vision' -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Mobile menu button {%- endcomment -%}
+      <button class="menu-button">
+        <div>Menu</div>
+      </button>
+
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Lottie Logo URLs"
+    },
+    {
+      "type": "text",
+      "id": "lottie_base",
+      "label": "Lottie URL — Base (Orange)",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_red",
+      "label": "Lottie URL — Red",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a09347a1d25ee7b33f5cf6_BP_LOGO_ANIMATED_Adventurous%20Light%20Red.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_blue",
+      "label": "Lottie URL — Blue",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a09350ca51cabc4ec04019_BP_LOGO_ANIMATED_Creative%20Light%20Blue.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_green",
+      "label": "Lottie URL — Green",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/67a0936d6bd476e8023219de_BP_LOGO_ANIMATED_Friendly%20Light%20Green.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_white",
+      "label": "Lottie URL — White",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_purple",
+      "label": "Lottie URL — Purple",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "navlink",
+      "name": "Navigation Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

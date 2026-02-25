@@ -1,0 +1,251 @@
+{%- comment -%}
+  Footer section: Logo + Address + Nav buttons + Form + Book a call
+{%- endcomment -%}
+
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="footer-wrap">
+
+      {%- comment -%} Footer Logo (Lottie, one per theme) {%- endcomment -%}
+      <a href="/" class="footer-logo">
+        <lottie-player class="lottie-logo content-base"
+          src="{{ section.settings.lottie_base }}"
+          background="transparent" speed="1" loop autoplay></lottie-player>
+        <lottie-player class="lottie-logo content-red"
+          src="{{ section.settings.lottie_red }}"
+          background="transparent" speed="1" loop autoplay></lottie-player>
+        <lottie-player class="lottie-logo content-blue"
+          src="{{ section.settings.lottie_blue }}"
+          background="transparent" speed="1" loop autoplay></lottie-player>
+        <lottie-player class="lottie-logo content-green"
+          src="{{ section.settings.lottie_green }}"
+          background="transparent" speed="1" loop autoplay></lottie-player>
+        <lottie-player class="lottie-logo content-white"
+          src="{{ section.settings.lottie_white }}"
+          background="transparent" speed="1" loop autoplay></lottie-player>
+        <lottie-player class="lottie-logo content-purple"
+          src="{{ section.settings.lottie_purple }}"
+          background="transparent" speed="1" loop autoplay></lottie-player>
+      </a>
+
+      {%- comment -%} Footer Info {%- endcomment -%}
+      <div class="footer_info-wrap">
+
+        {%- comment -%} Address block {%- endcomment -%}
+        <address class="footer_address">
+          <div class="address-wrap">
+            <p text-split>{{ section.settings.inquiries_label }}</p>
+            <a href="mailto:{{ section.settings.email }}" class="textlink" text-split>{{ section.settings.email }}</a>
+          </div>
+          <div class="address-wrap">
+            <p text-split>{{ section.settings.location_1 }}</p>
+            <p text-split>{{ section.settings.location_2 }}</p>
+          </div>
+          <div class="address-wrap">
+            {%- if section.settings.linkedin_url != blank -%}
+              <a href="{{ section.settings.linkedin_url }}" target="_blank" class="textlink" text-split>LI</a>
+            {%- endif -%}
+            {%- if section.settings.instagram_url != blank -%}
+              <a href="{{ section.settings.instagram_url }}" target="_blank" class="textlink" text-split>IG</a>
+            {%- endif -%}
+          </div>
+        </address>
+
+        {%- comment -%} Right column: nav links + form {%- endcomment -%}
+        <div class="footer-form-content">
+          <div class="footer_navigation-links">
+            <div class="footer_line"></div>
+            <a href="{{ section.settings.next_page_url }}" class="footer-btn foot-btn-hor">
+              <div text-split>Next page</div>
+              <div class="footer-btn_icon">
+                <div class="footer_arrow arrow-hor">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 26" fill="none">
+                    <path d="M23.5287 11.7408L23.5287 10.9912C19.8517 10.6943 16.1889 8.27595 16.196 0.858398H19.4204C19.4204 9.51338 26.3006 11.7125 29.8785 11.7408V14.6965C26.3288 14.6965 19.4204 16.9239 19.4204 25.5788L16.196 25.5789C16.196 18.1542 19.8235 15.7147 23.5287 15.446L23.5287 14.6965H0.0951781L0.0668945 11.7125L23.5287 11.7408Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="footer-arrow-hover-hor">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 45 26" fill="none">
+                    <path d="M30.3877 0.838745C30.3806 8.25629 34.0434 10.6746 37.7204 10.9716C37.703 12.4576 37.7133 13.9403 37.7204 15.4264C34.0152 15.6951 30.3877 18.1346 30.3877 25.5592L33.6121 25.5592C33.6121 16.9042 40.5205 14.6768 44.0702 14.6768V11.7211C40.4923 11.6928 33.6121 9.49373 33.6121 0.838745H30.3877Z" fill="currentColor"/>
+                    <path d="M15.3877 0.838745C15.3806 8.25629 19.0434 10.6746 22.7204 10.9716C22.703 12.4576 22.7133 13.9403 22.7204 15.4264C19.0152 15.6951 15.3877 18.1346 15.3877 25.5592L18.6121 25.5592C18.6121 16.9042 25.5205 14.6768 29.0702 14.6768V11.7211C25.4923 11.6928 18.6121 9.49373 18.6121 0.838745H15.3877Z" fill="currentColor"/>
+                    <path d="M0.360118 0.838745C0.353046 8.25629 4.01586 10.6746 7.69282 10.9716C7.67545 12.4576 7.68576 13.9403 7.69281 15.4264C3.98757 15.6951 0.360118 18.1346 0.360118 25.5592L3.58453 25.5592C3.58453 16.9042 10.493 14.6768 14.0426 14.6768V11.7211C10.4647 11.6928 3.58453 9.49373 3.58453 0.838745H0.360118Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+            <a href="#header" class="footer-btn foot-btn-vert">
+              <div text-split>Back to top</div>
+              <div class="footer-btn_icon foot-btn-vert">
+                <div class="footer-icon-top">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 26 31" fill="none">
+                    <path d="M11.7212 6.759L10.9717 6.759C10.6747 10.436 8.25642 14.0988 0.838867 14.0917L0.838867 10.8673C9.49385 10.8673 11.693 3.98714 11.7212 0.40918L14.6769 0.40918C14.6769 3.95886 16.9043 10.8673 25.5593 10.8673L25.5593 14.0917C18.1347 14.0917 15.6952 10.4642 15.4265 6.759L14.6769 6.759L14.6769 30.1925L11.693 30.2208L11.7212 6.759Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="footer-arrow-hover-vert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 26 45" fill="none">
+                    <path d="M0.494873 14.0264C7.91242 14.0335 10.3307 10.3707 10.6277 6.69372C12.1137 6.71108 13.5964 6.70078 15.0825 6.69372C15.3512 10.399 17.7907 14.0264 25.2153 14.0264L25.2153 10.802C16.5603 10.802 14.333 3.89358 14.333 0.343901L11.3772 0.343901C11.349 3.92186 9.14986 10.802 0.494873 10.802L0.494873 14.0264Z" fill="currentColor"/>
+                    <path d="M0.494873 29.0264C7.91242 29.0335 10.3307 25.3707 10.6277 21.6937C12.1137 21.7111 13.5964 21.7008 15.0825 21.6937C15.3512 25.399 17.7907 29.0264 25.2153 29.0264L25.2153 25.802C16.5603 25.802 14.333 18.8936 14.333 15.3439L11.3772 15.3439C11.349 18.9219 9.14986 25.802 0.494873 25.802L0.494873 29.0264Z" fill="currentColor"/>
+                    <path d="M0.494873 44.054C7.91242 44.0611 10.3307 40.3983 10.6277 36.7213C12.1137 36.7387 13.5964 36.7284 15.0825 36.7213C15.3512 40.4265 17.7907 44.054 25.2153 44.054L25.2153 40.8296C16.5603 40.8296 14.333 33.9212 14.333 30.3715L11.3772 30.3715C11.349 33.9494 9.14986 40.8296 0.494873 40.8296L0.494873 44.054Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {%- comment -%} Title + Form {%- endcomment -%}
+          <div class="footer_title-form">
+            <p text-split>{{ section.settings.form_title }}</p>
+            <div class="footer-form">
+              <form id="footer-form" class="footer-form" onsubmit="return false;">
+                <input class="footer-input" maxlength="256" name="Email" placeholder="Your email" type="email" required/>
+                <button type="submit" class="button-icon is-footer arrow-rotate" onclick="handleFooterForm(this)">
+                  <div class="icon-arrow">
+                    {%- render 'icon-arrow-diagonal' -%}
+                  </div>
+                </button>
+              </form>
+            </div>
+            <a href="{{ section.settings.book_call_url }}" target="_blank" class="banner_button arrow-rotate footer-button">
+              <div class="button-text is-banner">
+                <div class="text-base">
+                  <p text-split>{{ section.settings.book_call_text }}</p>
+                  <div class="banner-button_line is-1"></div>
+                  <div class="banner-button_line is-2"></div>
+                </div>
+              </div>
+              <div class="button-icon is-banner">
+                <div class="icon-arrow">
+                  {%- render 'icon-arrow-diagonal' -%}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="t--footer-copyright" text-split>&copy; {{ shop.name }} {{ 'now' | date: '%Y' }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "lottie_base",
+      "label": "Lottie URL — Base",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_red",
+      "label": "Lottie URL — Red",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_blue",
+      "label": "Lottie URL — Blue",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_green",
+      "label": "Lottie URL — Green",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_white",
+      "label": "Lottie URL — White",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a57d3fe7c35a52e78cfaa_BP_LOGO_ANIMATED_Efficient%20White.json"
+    },
+    {
+      "type": "text",
+      "id": "lottie_purple",
+      "label": "Lottie URL — Purple",
+      "default": "https://cdn.prod.website-files.com/67976ce4e855d5a8a293e7ea/679a1ff65144a47504a208b2_BP_LOGO_ANIMATED_Efficient%20Black.json"
+    },
+    {
+      "type": "header",
+      "content": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "inquiries_label",
+      "label": "Inquiries Label",
+      "default": "General Inquiries"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "sahil@brand-professor.com"
+    },
+    {
+      "type": "text",
+      "id": "location_1",
+      "label": "Location 1",
+      "default": "Hornchurch, UK"
+    },
+    {
+      "type": "text",
+      "id": "location_2",
+      "label": "Location 2",
+      "default": "Chandigarh, IN"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn URL",
+      "default": "https://www.linkedin.com/in/yourbrandprofessor/"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL",
+      "default": "https://www.instagram.com/sahilgandhi_brandprofessor/"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "url",
+      "id": "next_page_url",
+      "label": "Next Page URL",
+      "default": "/pages/workshops"
+    },
+    {
+      "type": "header",
+      "content": "Form & CTA"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "Let's build an Unforgettable & Iconic (U & I) Brand."
+    },
+    {
+      "type": "text",
+      "id": "book_call_text",
+      "label": "Book a Call Text",
+      "default": "Book a call"
+    },
+    {
+      "type": "url",
+      "id": "book_call_url",
+      "label": "Book a Call URL",
+      "default": "https://form.typeform.com/to/gUc15P3Y"
+    }
+  ]
+}
+{% endschema %}

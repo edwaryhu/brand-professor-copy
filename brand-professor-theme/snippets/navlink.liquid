@@ -1,0 +1,10 @@
+{%- comment -%}
+  Renders a single navigation link with arrow icon.
+  Usage: {% render 'navlink', url: block.settings.url, label: block.settings.label %}
+{%- endcomment -%}
+<a href="{{ url }}"{% if url contains '://' %} target="_blank"{% endif %} class="navlink">
+  <div class="navlink-shape">
+    {%- render 'icon-arrow' -%}
+  </div>
+  <div>{{ label }}</div>
+</a>

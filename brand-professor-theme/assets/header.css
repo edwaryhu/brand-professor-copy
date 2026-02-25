@@ -1,0 +1,156 @@
+/* ══════════════════════════════════════
+   HEADER / NAVIGATION + MOOD SELECTOR
+   ══════════════════════════════════════ */
+
+.header {
+  padding-top: 1.375rem;
+  padding-bottom: 1.375rem;
+}
+.header-content {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+.header_logo {
+  z-index: 5;
+  justify-content: flex-start;
+  align-items: center;
+  width: 7rem;
+  height: 3rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.lottie-header {
+  width: 6.375rem;
+  height: 6.375rem;
+}
+.lottie-header.content-red,
+.lottie-header.content-green,
+.lottie-header.content-blue,
+.lottie-header.content-white,
+.lottie-header.content-purple { display: none; }
+
+.menu-wrap {
+  z-index: 4;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+}
+.menu-navigation {
+  z-index: 4;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0% 0% 0% -10%;
+}
+.navlink {
+  grid-column-gap: 1.1rem;
+  grid-row-gap: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  font-size: .933333rem;
+  font-weight: 500;
+  display: flex;
+  white-space: nowrap;
+}
+.navlink-shape {
+  color: var(--_color-mode---accent);
+  flex: none;
+  width: .34375rem;
+  transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+  display: flex;
+}
+.navlink:hover .navlink-shape {
+  transform: translateX(0.5rem);
+}
+
+/* ── Mood Selector ── */
+.color-mode-selector {
+  z-index: 5;
+  grid-column-gap: 1.1875rem;
+  grid-row-gap: 1.1875rem;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 20rem;
+  margin-right: -.5rem;
+  padding: .5rem;
+  font-size: .875rem;
+  font-weight: 500;
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+.mood-selector_text {
+  width: auto;
+  overflow: hidden;
+}
+.mood-selector_colors {
+  grid-column-gap: .25rem;
+  grid-row-gap: .25rem;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+.mood-color-wrap {
+  grid-column-gap: .3125rem;
+  grid-row-gap: .3125rem;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+.mood-color_circle {
+  background-color: #fff;
+  border-radius: 1000%;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+}
+.mood-color_circle.is-orange { background-color: var(--swatch--professional-accent-orange); }
+.mood-color_circle.is-red { background-color: var(--swatch--adventurous-light-red); }
+.mood-color_circle.is-blue { background-color: var(--swatch--creative-light-blue); }
+.mood-color_circle.is-green { background-color: var(--swatch--friendly-light-green); }
+.mood-color_circle.is-white {
+  background-color: transparent;
+  border: .0625rem solid var(--swatch--efficient-white);
+}
+.mood-color_circle.is-purple { background-color: var(--swatch--mystic-light-purple); }
+.mood-color_text {
+  width: 0;
+  font-size: .5rem;
+  line-height: 120%;
+  overflow: hidden;
+  transition: width .35s cubic-bezier(.25,.46,.45,.94);
+}
+.mood-color_text.orange { color: var(--swatch--professional-accent-orange); }
+.mood-color_text.red { color: var(--swatch--adventurous-light-red); }
+.mood-color_text.blue { color: var(--swatch--creative-light-blue); }
+.mood-color_text.green { color: var(--swatch--friendly-light-green); }
+.mood-color_text.white { color: var(--swatch--efficient-white); }
+.mood-color_text.purple { color: var(--swatch--mystic-light-purple); }
+.color-mode-selector:hover .mood-selector_text { display: none; }
+.color-mode-selector:hover .mood-color_text { width: 3rem; }
+.mood-color-wrap:hover .mood-color_circle { transform: scale(1.15); }
+
+/* ── Mobile menu button ── */
+.menu-button {
+  display: none;
+  z-index: 5;
+  font-weight: 500;
+  font-size: .933333rem;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 991px) {
+  .menu-navigation { display: none; }
+  .color-mode-selector { display: none; }
+  .menu-button { display: block; position: absolute; right: 0; }
+}
